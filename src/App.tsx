@@ -8,7 +8,7 @@ import {
 // Import page modules from /view directory
 import LandingPage from "./views/landingpage"
 import SecondPage from "./views/secondpage"
-//import CreateServerPage from "./views/createserverpage"
+import CreateServerPage from "./views/createserverpage"
 
 
 function App() {
@@ -30,7 +30,10 @@ function App() {
               <SecondPage />
             </Route>
 
-            
+            <Route path="/createserverpage">
+              <CreateServerPage />
+            </Route>
+
           
           </Switch>
         </div>
