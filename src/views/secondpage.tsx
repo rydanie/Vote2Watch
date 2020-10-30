@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import { Button, Input, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
 
 const Example = (props: any) => {
   return (
@@ -8,18 +8,29 @@ const Example = (props: any) => {
         <a href="landingpage"> go to the main page</a>
 
         <div>
-            <Button color="primary">primary</Button>{' '}
-            <Button color="secondary">secondary</Button>{' '}
-            <Button color="success">success</Button>{' '}
-            <Button color="info">info</Button>{' '}
-            <Button color="warning">warning</Button>{' '}
-            <Button color="danger">danger</Button>{' '}
-            <Button color="link">link</Button>
+          <InputGroup>
+          <InputGroupAddon addonType="prepend">
+            <InputGroupText>To the Left!</InputGroupText>
+          </InputGroupAddon>
+          <Input />
+          </InputGroup>
+
+          <div>
+          <Button outline color="primary">primary</Button>{' '}
+          <Button outline color="secondary">secondary</Button>{' '}
+          <Button outline color="success">success</Button>{' '}
+          <Button outline color="info">info</Button>{' '}
+          <Button outline color="warning">warning</Button>{' '}
+          <Button outline color="danger">danger</Button>
+          </div>
+  
         </div>
 
     </div>
   );
 }
+
+
 
 
 export default Example;

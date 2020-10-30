@@ -27,6 +27,16 @@
   .App-link {
     color: #61dafb;
   }
+
+  .positionInBottom {
+    position: 'absolute',
+    width: 50,
+    height: 50,
+    bottom: 0,
+    left: Dimensions.get('window').width - 70,
+    backgroundColor: 'red',
+    zIndex: 100,
+}
   
   @keyframes App-logo-spin {
     from {
