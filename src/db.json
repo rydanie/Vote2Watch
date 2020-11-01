@@ -13,13 +13,6 @@
       "timeElapsed": "we did it"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
   "profile": {
     "name": "typicode"
   }

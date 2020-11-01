@@ -7,7 +7,7 @@ const Example = (event: any) => {
     const [value, setValue] = useState("");
 
     const handleSubmit = e => {
-        axios.post("/posts", {
+        axios.post("http://localhost:3001/posts", {
             "id": "",
             "ticker": value,
             "stockPrice": "",
