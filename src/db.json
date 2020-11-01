@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "ticker": "TWTR",
+      "stockPrice": "22.76 USD",
+      "timeElapsed": "5 sec ago"
+    },
+    {
+      "id": 2,
+      "ticker": "TWTR",
+      "stockPrice": "22.76 USD",
+      "timeElapsed": "we did it"
+    },
+    {
+      "id": 3,
+      "ticker": "testing",
+      "stockPrice": "",
+      "timeElapsed": ""
+    },
+    {
+      "id": 4,
+      "ticker": "testingsdfsdfasd",
+      "stockPrice": "",
+      "timeElapsed": ""
+    },
+    {
+      "id": 5,
+      "ticker": "asfsadg",
+      "stockPrice": "",
+      "timeElapsed": ""
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
