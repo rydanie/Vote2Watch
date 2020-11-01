@@ -11,48 +11,6 @@
       "ticker": "TWTR",
       "stockPrice": "22.76 USD",
       "timeElapsed": "we did it"
-    },
-    {
-      "id": 3,
-      "ticker": "test",
-      "stockPrice": "",
-      "timeElapsed": ""
-    },
-    {
-      "id": 4,
-      "ticker": "testfgh",
-      "stockPrice": "",
-      "timeElapsed": ""
-    },
-    {
-      "id": 5,
-      "ticker": "54363",
-      "stockPrice": "",
-      "timeElapsed": ""
-    },
-    {
-      "id": 6,
-      "ticker": "345345",
-      "stockPrice": "",
-      "timeElapsed": ""
-    },
-    {
-      "id": 7,
-      "ticker": "vcvdf",
-      "stockPrice": "",
-      "timeElapsed": ""
-    },
-    {
-      "id": 8,
-      "ticker": "sdf",
-      "stockPrice": "",
-      "timeElapsed": ""
-    },
-    {
-      "id": 9,
-      "ticker": "456533",
-      "stockPrice": "",
-      "timeElapsed": ""
     }
   ],
   "comments": [
