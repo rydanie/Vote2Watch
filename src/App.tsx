@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,8 +9,6 @@ import {
 import LandingPage from "./views/landingpage"
 import SecondPage from "./views/secondpage"
 import CreateServerPage from "./views/createserverpage"
-
-
 
 function App() {
   return (
@@ -34,8 +32,7 @@ function App() {
             <Route path="/createserverpage">
               <CreateServerPage />
             </Route>
-
-          
+        
           </Switch>
         </div>
       </Router>

@@ -1,26 +1,10 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Button } from 'reactstrap';
 
 
 const Example = (props: any) => {
   return (
-    
-    /*
-    <Container>
-      <Row>
-        <Col> </Col>
-      </Row>
-      <Row>
-      <Col sm="12" md={{ size: 6, offset: 3 }}>.col-sm-12 .col-md-6 .offset-md-3</Col>
-      </Row>
-    </Container>
-    
-   <Button outline color="primary">primary</Button>{' '}
-    <div> 
-      <Container className="themed-container">one</Container>
-      <Container className="themed-container" fluid="sm">two</Container>
-      <Container className="themed-container" fluid="md">three</Container>
-    </div>*/
+
     <Container style={{flex:1,
       flexDirection:'row',
       alignItems:'center',

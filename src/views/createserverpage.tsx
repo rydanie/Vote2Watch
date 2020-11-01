@@ -1,38 +1,7 @@
-/*import React from 'react';
-import { Button, Form, Input } from 'reactstrap';
-import SubmitMovieTitle from '../components/submitmovietitle';
-
-
-
-
-const Example = (props: any) => {
-
-  
-  return (
-    <div>
-      <h1>Create Server Page</h1>
-        <a href="landingpage"> go to the main page</a>
-        <SubmitMovieTitle />
-    </div>
-  );
-}
-
-
-export default Example;*/
 import React from "react";
 import "./createserverpage.css";
 import stockData from "../db.json";
 import SubmitData from '../components/submitdata';
-
-
-
-
-var feed = {
-    "id": 5,
-    "title": "entry 5",
-    "author": "Ethan"
-};
-//stockData.push(feed);
 
 export const Stocks = () => {
     return (

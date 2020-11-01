@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import axios, { AxiosInstance } from "axios";
-import { Button, Col, Form, FormGroup, Input, Label, } from 'reactstrap';
+import axios from "axios";
+import { Button, Form, FormGroup, Input, Label, } from 'reactstrap';
 
 const Example = (event: any) => {
 
     const [value, setValue] = useState("");
 
     const handleSubmit = e => {
-        axios.post("http://localhost:3001/posts", {
+        axios.post("/posts", {
             "id": "",
             "ticker": value,
             "stockPrice": "",
@@ -27,7 +27,7 @@ const Example = (event: any) => {
 
   return (
     <div>
-        <Form onSubmit={handleSubmit}>
+        <Form >
         <FormGroup>
             <Label for="exampleAddress">Enter a Movie Title</Label>
             
@@ -35,7 +35,6 @@ const Example = (event: any) => {
                     type="text" 
                     onKeyPress = {handleKeypress}
                     onChange= {handleChange}
-                    name="btn"
                     value = {value}
                     placeholder="Enter movie"
             />
