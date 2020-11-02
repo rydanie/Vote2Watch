@@ -1,16 +1,10 @@
 {
   "posts": [
     {
-      "id": 1,
-      "ticker": "TWTR",
-      "stockPrice": "22.76 USD",
-      "timeElapsed": "5 sec ago"
-    },
-    {
-      "id": 2,
-      "ticker": "TWTR",
-      "stockPrice": "22.76 USD",
-      "timeElapsed": "we did it"
+      "id": 0,
+      "ticker": "",
+      "stockPrice": 0,
+      "timeElapsed": null
     }
   ],
   "profile": {

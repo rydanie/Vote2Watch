@@ -2,7 +2,9 @@ import React from "react";
 import "./createserverpage.css";
 import stockData from "../db.json";
 import SubmitData from '../components/submitdata';
-import { Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle, Col, Row } from "reactstrap";
+import { Button, Card, CardText, CardTitle, Col } from "reactstrap";
+import axios from "axios";
+
 
 export const Stocks = () => {
     return (
@@ -11,6 +13,9 @@ export const Stocks = () => {
         <HomePageHeader />
         <div className="stock-container">
           {stockData.posts.map((data, key) => {
+            if(stockData.posts.length > 1){
+
+            
             return (
               <div key={key}>
                 <Stock
@@ -21,27 +26,11 @@ export const Stocks = () => {
                   timeElapsed={data.timeElapsed}
                 />
               </div>
-            );  
-          })}
-        
-        <div>
-          <Row>
-            <Col sm="3">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                <Button>Go somewhere</Button>
-              </Card>
-            </Col>
-            <Col sm="3">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                <Button>Go somewhere</Button>
-              </Card>
-            </Col>
-          </Row>
-        </div>
+            ); 
+            } 
+          })
+        }
+
 
         </div>
         <SubmitData />
@@ -57,6 +46,22 @@ const HomePageHeader = () => {
     );
   };
 
+  const handleDelete = e => {
+    axios.delete("/posts/"+e)
+}
+
+const handleVote = async e => {
+  let res = await axios.get("/posts/"+e)
+  let data = res.data
+  
+  data.stockPrice = data.stockPrice+1
+
+  console.log(data)
+  //axios.delete("/posts/"+e)
+  axios.put("/posts/"+e, data)
+  //axios.post("/posts/", data)
+}
+
   const Stock = ({ company, ticker, stockPrice, timeElapsed }) => {
     if (!company) return <div />;
     return (
@@ -68,6 +73,15 @@ const HomePageHeader = () => {
             </td>
             <td>
               <h5>{ticker}</h5>
+              <Col sm="6">
+                <Card body>
+                  <CardTitle>{ticker}</CardTitle>
+                  <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                  <Button onClick={(e) => {handleDelete(company)} } >Delete</Button>
+                  <Button name='button1' variant="primary" onClick={(e) => {handleVote(company)}} >Vote</Button>{' '}
+                </Card>
+              </Col>
+              
             </td>
             <td>
               <h4>{stockPrice}</h4>
