@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Button } from 'reactstrap';
 
-
 const Example = (props: any) => {
   return (
 
@@ -25,22 +24,10 @@ const Example = (props: any) => {
 
     <a href="secondpage"> go to test page</a>
     <a href="createserverpage">Create a Room</a>
-    <a href="conditionalpage">Conditional Page</a>
     <a href="joinroompage">Join Room Page</a>
 
     </Container>
   );
 }
-/*
-const Example = (props: any) => {
-  return (
-    <div>
-      <h1>Welcome to Vote2Watch</h1>
-          <a href="secondpage"> go to test page</a>
-
-      
-    </div>
-  );
-}*/
 
 export default Example;

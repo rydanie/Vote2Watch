@@ -9,7 +9,6 @@ import {
 import LandingPage from "./views/landingpage"
 import SecondPage from "./views/secondpage"
 import CreateServerPage from "./views/createserverpage"
-import ConditionalPage from "./views/conditionalpage"
 import JoinRoomPage from "./views/joinroom"
 
 /* 
@@ -19,9 +18,6 @@ json-server --watch ./src/db.json --port 50501
 */
 
 function App() {
-
- 
-
   return (
     <div>
       <Router>
@@ -42,10 +38,6 @@ function App() {
 
             <Route path="/createserverpage">
               <CreateServerPage />
-            </Route>
-
-            <Route path="/conditionalpage">
-              <ConditionalPage />
             </Route>
 
             <Route path="/joinroompage">

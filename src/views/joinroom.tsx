@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Button, Card, CardText, CardTitle, Col, Form, FormGroup, Input, Label } from 'reactstrap';
 import CookieService from "../components/cookieservice"
 import stockData from "../db.json";
@@ -25,8 +24,8 @@ const Example = (event: any) => {
       setValue(e.target.value);
   }
 
-  // Entering Room #1
-  if(CookieService.get("1")=="1"){
+// Entering Room #1
+  if(CookieService.get("1") === "1"){
     return (
       <div>
         <Form >
@@ -44,8 +43,8 @@ const Example = (event: any) => {
           <Button name='button1' variant="primary" onClick={handleSubmit} >Submit Data To Cookie</Button>{' '}
           <Button name='button1' variant="primary" onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))} >Cookie Console.log</Button>{' '}
       
-    <h1> Render Room #1 </h1>
-    
+        <h1> Render Room #1 </h1>
+        {/* Room #1 Table rendering*/}
         <a href="landingpage"> go to the main page</a>
         <div className="stock-container">
           {stockData.movies.map((data, key) => {
@@ -62,6 +61,8 @@ const Example = (event: any) => {
                   />
                 </div>
               ); 
+            }else{
+              return(<h1> Database Error </h1>)
             } 
           })
         }
@@ -70,8 +71,8 @@ const Example = (event: any) => {
     );
 }
 
-  // Entering Room #2
-if(CookieService.get("1")=="2"){
+// Entering Room #2
+if(CookieService.get("1") === "2"){
 return(
   <div>
     <Form >
@@ -90,32 +91,12 @@ return(
       <Button name='button1' variant="primary" onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))} >Cookie Console.log</Button>{' '}
   
   <h1> Render Room #2 </h1>
+  {/* Room #2 Table rendering*/}
   
-  <a href="landingpage"> go to the main page</a>
-        <div className="stock-container">
-          {stockData.movies.map((data, key) => {
-            if(stockData.movies.length > 1){
-              return (
-                <div key={key}>
-                  <Stock
-                    key={key}
-                    company={data.id}
-                    ticker={data.ticker}
-                    stockPrice={data.stockPrice}
-                    timeElapsed={data.timeElapsed}
-                    roomId={data.roomId}
-                  />
-                </div>
-              ); 
-            } 
-          })
-        }
-        </div>
-      </div>
-    
+    </div>
 );
 
- // Entering Unknown Room
+// Entering Unknown Room
 }else{
   return(
     <div>
@@ -141,10 +122,12 @@ return(
 
 }
 
+
+
  // Prints out table of movies
 const Stock = ({ company, ticker, stockPrice, timeElapsed, roomId }) => {
   if (!company) return <div />;
-  if (roomId == CookieService.get("1")){
+  if (roomId.toString() === CookieService.get("1")){
       return (
           <table>
             <tbody>
@@ -174,8 +157,9 @@ const Stock = ({ company, ticker, stockPrice, timeElapsed, roomId }) => {
             </tbody>
           </table>
         );
+
       }else{
-        return(<h1> not roomID 1 </h1>)
+        return(<h1> Movie not in RoomID </h1>)
       }
   
 };

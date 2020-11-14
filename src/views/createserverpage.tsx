@@ -16,7 +16,6 @@ export const Stocks = () => {
         <div className="stock-container">
           {stockData.movies.map((data, key) => {
             if(stockData.movies.length > 1){
-
             
             return (
               <div key={key}>
@@ -29,7 +28,9 @@ export const Stocks = () => {
                 />
               </div>
             ); 
-            } 
+            }else{
+              return(<h1> Database Error </h1>)
+            }
           })
         }
 
