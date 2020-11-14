@@ -1,10 +1,53 @@
 {
-  "posts": [
+  "rooms": [
+    {
+      "id": 1,
+      "name": "room1"
+    },
+    {
+      "id": 2,
+      "name": "room2"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "roomId": 1,
+      "name": "Ethan"
+    },
+    {
+      "id": 2,
+      "roomId": 2,
+      "name": "test"
+    },
+    {
+      "name": null,
+      "id": 3
+    },
+    {
+      "name": null,
+      "id": 4
+    }
+  ],
+  "movies": [
     {
       "id": 0,
       "ticker": "",
       "stockPrice": 0,
-      "timeElapsed": null
+      "timeElapsed": null,
+      "roomId": 1
+    },
+    {
+      "id": 3,
+      "ticker": "new movie",
+      "stockPrice": 4,
+      "timeElapsed": ""
+    },
+    {
+      "id": 4,
+      "ticker": "movie #2",
+      "stockPrice": 1,
+      "timeElapsed": ""
     }
   ],
   "profile": {

@@ -6,14 +6,16 @@ import { Button, Card, CardText, CardTitle, Col } from "reactstrap";
 import axios from "axios";
 
 
+
 export const Stocks = () => {
+ 
     return (
       <>
         <a href="landingpage"> go to the main page</a>
         <HomePageHeader />
         <div className="stock-container">
-          {stockData.posts.map((data, key) => {
-            if(stockData.posts.length > 1){
+          {stockData.movies.map((data, key) => {
+            if(stockData.movies.length > 1){
 
             
             return (
@@ -47,18 +49,18 @@ const HomePageHeader = () => {
   };
 
   const handleDelete = e => {
-    axios.delete("/posts/"+e)
+    axios.delete("movies/"+e)
 }
 
 const handleVote = async e => {
-  let res = await axios.get("/posts/"+e)
+  let res = await axios.get("/movies/"+e)
   let data = res.data
   
   data.stockPrice = data.stockPrice+1
 
   console.log(data)
   //axios.delete("/posts/"+e)
-  axios.put("/posts/"+e, data)
+  axios.put("/movies/"+e, data)
   //axios.post("/posts/", data)
 }
 
