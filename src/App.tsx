@@ -6,12 +6,22 @@ import {
 } from "react-router-dom";
 
 // Import page modules from /view directory
-//
 import LandingPage from "./views/landingpage"
 import SecondPage from "./views/secondpage"
 import CreateServerPage from "./views/createserverpage"
+import ConditionalPage from "./views/conditionalpage"
+import JoinRoomPage from "./views/joinroom"
+
+/* 
+JSON-Server backed startup:
+json-server --watch /home/systemsunknown/vote2watch/src/db.json --port 50501
+json-server --watch ./src/db.json --port 50501
+*/
 
 function App() {
+
+ 
+
   return (
     <div>
       <Router>
@@ -32,6 +42,14 @@ function App() {
 
             <Route path="/createserverpage">
               <CreateServerPage />
+            </Route>
+
+            <Route path="/conditionalpage">
+              <ConditionalPage />
+            </Route>
+
+            <Route path="/joinroompage">
+              <JoinRoomPage />
             </Route>
         
           </Switch>

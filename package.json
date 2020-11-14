@@ -15,6 +15,7 @@
     "json-server": "^0.16.2",
     "react": "^17.0.1",
     "react-color": "^2.19.3",
+    "react-cookie": "^4.0.3",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.9.6",
     "react-redux": "^7.2.2",
@@ -24,11 +25,11 @@
     "redux": "^4.0.5",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4",
+    "webpack-dev-server": "^3.11.0",
     "yarn": "^1.22.10"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "PORT=50500 react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

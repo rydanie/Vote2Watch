@@ -25,6 +25,8 @@ const Example = (props: any) => {
 
     <a href="secondpage"> go to test page</a>
     <a href="createserverpage">Create a Room</a>
+    <a href="conditionalpage">Conditional Page</a>
+    <a href="joinroompage">Join Room Page</a>
 
     </Container>
   );
