@@ -92,7 +92,28 @@ return(
   
   <h1> Render Room #2 </h1>
   {/* Room #2 Table rendering*/}
-  
+  <a href="landingpage"> go to the main page</a>
+        <div className="stock-container">
+          {stockData.movies.map((data, key) => {
+            if(stockData.movies.length > 1){
+              return (
+                <div key={key}>
+                  <Stock
+                    key={key}
+                    company={data.id}
+                    ticker={data.ticker}
+                    stockPrice={data.stockPrice}
+                    timeElapsed={data.timeElapsed}
+                    roomId={data.roomId}
+                  />
+                </div>
+              ); 
+            }else{
+              return(<h1> Database Error </h1>)
+            }  
+          })
+        }
+      </div>
     </div>
 );
 
@@ -119,6 +140,7 @@ return(
     </div>
   );
 }
+
 
 }
 
