@@ -27,6 +27,14 @@
     {
       "name": null,
       "id": 4
+    },
+    {
+      "name": "1",
+      "id": 5
+    },
+    {
+      "name": "1",
+      "id": 6
     }
   ],
   "movies": [
@@ -40,14 +48,23 @@
     {
       "id": 3,
       "ticker": "new movie",
-      "stockPrice": 4,
-      "timeElapsed": ""
+      "stockPrice": 5,
+      "timeElapsed": "",
+      "roomId": 1
     },
     {
       "id": 4,
       "ticker": "movie #2",
-      "stockPrice": 1,
-      "timeElapsed": ""
+      "stockPrice": 2,
+      "timeElapsed": "",
+      "roomId": 1
+    },
+    {
+      "id": 5,
+      "ticker": "ROOM 2 Movie",
+      "stockPrice": 2,
+      "timeElapsed": "",
+      "roomId": 2
     }
   ],
   "profile": {

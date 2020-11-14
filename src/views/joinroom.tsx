@@ -25,13 +25,58 @@ const Example = (event: any) => {
       setValue(e.target.value);
   }
 
-  if(CookieService.get("1")=="10"){
+  // Entering Room #1
+  if(CookieService.get("1")=="1"){
     return (
       <div>
+        <Form >
+          <FormGroup>
+              <Label for="exampleAddress">Enter Room ID</Label>
+              <Input
+                      type="text" 
+                      onKeyPress = {handleKeypress}
+                      onChange= {handleChange}
+                      value = {value}
+                      placeholder="Enter Room ID"
+              />
+          </FormGroup>
+          </Form>
+          <Button name='button1' variant="primary" onClick={handleSubmit} >Submit Data To Cookie</Button>{' '}
+          <Button name='button1' variant="primary" onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))} >Cookie Console.log</Button>{' '}
+      
+    <h1> Render Room #1 </h1>
+    
+        <a href="landingpage"> go to the main page</a>
+        <div className="stock-container">
+          {stockData.movies.map((data, key) => {
+            if(stockData.movies.length > 1){
+              return (
+                <div key={key}>
+                  <Stock
+                    key={key}
+                    company={data.id}
+                    ticker={data.ticker}
+                    stockPrice={data.stockPrice}
+                    timeElapsed={data.timeElapsed}
+                    roomId={data.roomId}
+                  />
+                </div>
+              ); 
+            } 
+          })
+        }
+        </div>
+      </div>
+    );
+}
+
+  // Entering Room #2
+if(CookieService.get("1")=="2"){
+return(
+  <div>
     <Form >
       <FormGroup>
           <Label for="exampleAddress">Enter Room ID</Label>
-          
           <Input
                   type="text" 
                   onKeyPress = {handleKeypress}
@@ -43,71 +88,40 @@ const Example = (event: any) => {
       </Form>
       <Button name='button1' variant="primary" onClick={handleSubmit} >Submit Data To Cookie</Button>{' '}
       <Button name='button1' variant="primary" onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))} >Cookie Console.log</Button>{' '}
-      
-    <h1> Render #1 </h1>
-    
-      
-        <a href="landingpage"> go to the main page</a>
+  
+  <h1> Render Room #2 </h1>
+  
+  <a href="landingpage"> go to the main page</a>
         <div className="stock-container">
           {stockData.movies.map((data, key) => {
-            
             if(stockData.movies.length > 1){
-
-            
-            return (
-              <div key={key}>
-                <Stock
-                  key={key}
-                  company={data.id}
-                  ticker={data.ticker}
-                  stockPrice={data.stockPrice}
-                  timeElapsed={data.timeElapsed}
-                  roomId={data.roomId}
-                />
-              </div>
-            ); 
+              return (
+                <div key={key}>
+                  <Stock
+                    key={key}
+                    company={data.id}
+                    ticker={data.ticker}
+                    stockPrice={data.stockPrice}
+                    timeElapsed={data.timeElapsed}
+                    roomId={data.roomId}
+                  />
+                </div>
+              ); 
             } 
           })
         }
-
-
         </div>
-       
       </div>
     
-    );
-  
-}
-if(CookieService.get("1")=="2"){
-return(
-  <div>
-  <Form >
-    <FormGroup>
-        <Label for="exampleAddress">Enter Room ID</Label>
-        
-        <Input
-                type="text" 
-                onKeyPress = {handleKeypress}
-                onChange= {handleChange}
-                value = {value}
-                placeholder="Enter Room ID"
-        />
-    </FormGroup>
-    </Form>
-    <Button name='button1' variant="primary" onClick={handleSubmit} >Submit Data To Cookie</Button>{' '}
-    <Button name='button1' variant="primary" onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))} >Cookie Console.log</Button>{' '}
-    
-  <h1> render #2 </h1>
-  </div>
-    
 );
+
+ // Entering Unknown Room
 }else{
   return(
     <div>
     <Form >
       <FormGroup>
           <Label for="exampleAddress">Enter Room ID</Label>
-          
           <Input
                   type="text" 
                   onKeyPress = {handleKeypress}
@@ -127,8 +141,10 @@ return(
 
 }
 
+ // Prints out table of movies
 const Stock = ({ company, ticker, stockPrice, timeElapsed, roomId }) => {
   if (!company) return <div />;
+  if (roomId == CookieService.get("1")){
       return (
           <table>
             <tbody>
@@ -158,6 +174,9 @@ const Stock = ({ company, ticker, stockPrice, timeElapsed, roomId }) => {
             </tbody>
           </table>
         );
+      }else{
+        return(<h1> not roomID 1 </h1>)
+      }
   
 };
 
@@ -168,13 +187,11 @@ const handleDelete = e => {
 const handleVote = async e => {
   let res = await axios.get("/movies/"+e)
   let data = res.data
-  
+
   data.stockPrice = data.stockPrice+1
 
   console.log(data)
-  //axios.delete("/posts/"+e)
   axios.put("/movies/"+e, data)
-  //axios.post("/posts/", data)
 }
 
 export default Example;
