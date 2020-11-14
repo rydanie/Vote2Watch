@@ -2,40 +2,44 @@ import React, { useState } from 'react';
 import axios from "axios";
 import { Button, Form, FormGroup, Input, Label, } from 'reactstrap';
 
-const Example = (event: any) => {
+const SubmitData = (event: any) => {
 
-    const [value, setValue] = useState("");
+    // Variable to store user input of the movie title
+    const [movieInput, setMovieInput] = useState("");
 
+    // Method to make HTTP requests to backend to create a movie entry
     const handleSubmit = e => {
         axios.post("/movies", {
             "id": "",
-            "ticker": value,
-            "stockPrice": 0,
-            "timeElapsed": ""
+            "movieName": movieInput,
+            "votes": 0,
+            "timeElapsed": "",
+            "roomId": "1"
        })
     }
 
+    // Checks if the users keypress is the enter key so pressing 'enter' triggers handleSubmit
     const handleKeypress = e => {
         if (e.key === "Enter") {
             handleSubmit(e);
           } 
     }
 
+    // Changes the movieInput variable with the users form input
     const handleChange = e => {
-        setValue(e.target.value);
+        setMovieInput(e.target.value);
     }
 
-  return (
+    return (
     <div>
         <Form >
         <FormGroup>
             <Label for="exampleAddress">Enter a Movie Title</Label>
-            
             <Input
                     type="text" 
                     onKeyPress = {handleKeypress}
                     onChange= {handleChange}
-                    value = {value}
+                    value = {movieInput}
                     placeholder="Enter movie"
             />
         </FormGroup>
@@ -45,4 +49,4 @@ const Example = (event: any) => {
   );
 }
 
-export default Example;
+export default SubmitData;

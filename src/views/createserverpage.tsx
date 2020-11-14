@@ -1,29 +1,27 @@
 import React from "react";
 import "./createserverpage.css";
-import stockData from "../db.json";
+import Database from "../db.json";
 import SubmitData from '../components/submitdata';
 import { Button, Card, CardText, CardTitle, Col } from "reactstrap";
 import axios from "axios";
 
-
-
-export const Stocks = () => {
+export const CreateServerPage = () => {
  
     return (
       <>
         <a href="landingpage"> go to the main page</a>
         <HomePageHeader />
         <div className="stock-container">
-          {stockData.movies.map((data, key) => {
-            if(stockData.movies.length > 1){
+          {Database.movies.map((data, key) => {
+            if(Database.movies.length > 1){
             
             return (
               <div key={key}>
-                <Stock
+                <CreateTable
                   key={key}
-                  company={data.id}
-                  ticker={data.ticker}
-                  stockPrice={data.stockPrice}
+                  id={data.id}
+                  movieName={data.movieName}
+                  votes={data.votes}
                   timeElapsed={data.timeElapsed}
                 />
               </div>
@@ -33,7 +31,6 @@ export const Stocks = () => {
             }
           })
         }
-
 
         </div>
         <SubmitData />
@@ -49,7 +46,7 @@ const HomePageHeader = () => {
     );
   };
 
-  const handleDelete = e => {
+const handleDelete = e => {
     axios.delete("movies/"+e)
 }
 
@@ -57,37 +54,35 @@ const handleVote = async e => {
   let res = await axios.get("/movies/"+e)
   let data = res.data
   
-  data.stockPrice = data.stockPrice+1
+  data.votes = data.votes+1
 
   console.log(data)
-  //axios.delete("/posts/"+e)
   axios.put("/movies/"+e, data)
-  //axios.post("/posts/", data)
 }
 
-  const Stock = ({ company, ticker, stockPrice, timeElapsed }) => {
-    if (!company) return <div />;
+  const CreateTable = ({ id, movieName, votes, timeElapsed }) => {
+    if (!id) return <div />;
     return (
       <table>
         <tbody>
           <tr>
             <td>
-              <h5>{company}</h5>
+              <h5>{id}</h5>
             </td>
             <td>
-              <h5>{ticker}</h5>
+              <h5>{movieName}</h5>
               <Col sm="6">
                 <Card body>
-                  <CardTitle>{ticker}</CardTitle>
+                  <CardTitle>{movieName}</CardTitle>
                   <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                  <Button onClick={(e) => {handleDelete(company)} } >Delete</Button>
-                  <Button name='button1' variant="primary" onClick={(e) => {handleVote(company)}} >Vote</Button>{' '}
+                  <Button onClick={(e) => {handleDelete(id)} } >Delete</Button>
+                  <Button name='button1' variant="primary" onClick={(e) => {handleVote(id)}} >Vote</Button>{' '}
                 </Card>
               </Col>
               
             </td>
             <td>
-              <h4>{stockPrice}</h4>
+              <h4>{votes}</h4>
             </td>
             <td>
               <p>{timeElapsed}</p>
@@ -97,7 +92,5 @@ const handleVote = async e => {
       </table>
     );
   };
-  
 
-
-export default Stocks;
+export default CreateServerPage;

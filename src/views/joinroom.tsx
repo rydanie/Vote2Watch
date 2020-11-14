@@ -1,106 +1,72 @@
 import React, { useState } from 'react';
-import { Button, Card, CardText, CardTitle, Col, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import CookieService from "../components/cookieservice"
 import CreateTable from "../components/createtable"
 
-const Example = (event: any) => {
+const JoinRoomPage = (event: any) => {
 
-  const [value, setValue] = useState("");
+  // Variable for the users room input
+  const [roomInput, setRoomInput] = useState("");
 
+  // Sets the users cookie to the roomInput
   const handleSubmit = e => {
-     console.log("room id: "+value)
-     CookieService.set(1, value, "test")
+     CookieService.set(1, roomInput, "test")
      window.location.reload()
   }
 
+  // Checks if the users keypress is the enter key so pressing 'enter' triggers handleSubmit
   const handleKeypress = e => {
       if (e.key === "Enter") {
           handleSubmit(e);
         } 
   }
 
+  // Changes the roomInput variable with the users form input
   const handleChange = e => {
-      setValue(e.target.value);
+      setRoomInput(e.target.value);
   }
 
-// Entering Room #1
-  if(CookieService.get("1") === "1"){
-    return (
-      <div>
-        <Form >
-          <FormGroup>
-              <Label for="exampleAddress">Enter Room ID</Label>
-              <Input
-                      type="text" 
-                      onKeyPress = {handleKeypress}
-                      onChange= {handleChange}
-                      value = {value}
-                      placeholder="Enter Room ID"
-              />
-          </FormGroup>
-          </Form>
-          <Button name='button1' variant="primary" onClick={handleSubmit} >Submit Data To Cookie</Button>{' '}
-          <Button name='button1' variant="primary" onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))} >Cookie Console.log</Button>{' '}
-      
-        <h1> Render Room #1 </h1>
-      <>
-        <CreateTable />
-      </>
-      </div>
-    );
-}
-
-// Entering Room #2
-if(CookieService.get("1") === "2"){
-return(
-  <div>
-    <Form >
-      <FormGroup>
-          <Label for="exampleAddress">Enter Room ID</Label>
-          <Input
-                  type="text" 
-                  onKeyPress = {handleKeypress}
-                  onChange= {handleChange}
-                  value = {value}
-                  placeholder="Enter Room ID"
-          />
-      </FormGroup>
-      </Form>
-      <Button name='button1' variant="primary" onClick={handleSubmit} >Submit Data To Cookie</Button>{' '}
-      <Button name='button1' variant="primary" onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))} >Cookie Console.log</Button>{' '}
-      
-  <h1> Render Room #2 </h1>
-  <>
-    <CreateTable />
-  </>
-    </div>
-    
-  );
-}
-
-// Entering Unknown Room
-else{
-  return(
+  return (
     <div>
-    <Form >
-      <FormGroup>
-          <Label for="exampleAddress">Enter Room ID</Label>
-          <Input
-                  type="text" 
-                  onKeyPress = {handleKeypress}
-                  onChange= {handleChange}
-                  value = {value}
-                  placeholder="Enter Room ID"
-          />
-      </FormGroup>
-      </Form>
-      <Button name='button1' variant="primary" onClick={handleSubmit} >Submit Data To Cookie</Button>{' '}
-      <Button name='button1' variant="primary" onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))} >Cookie Console.log</Button>{' '}
-      
-    <h1> Not Found </h1>
+      <Form >
+
+        {/* Form Text Input */}
+        <FormGroup>
+            <Label for="RoomId">Enter Room ID</Label>
+            <Input
+                    type="text" 
+                    onKeyPress = {handleKeypress}
+                    onChange= {handleChange}
+                    value = {roomInput}
+                    placeholder="Enter Room ID"
+            />
+        </FormGroup>
+        </Form>
+
+        {/* Submit Button */}
+        <Button 
+          name='button1' 
+          variant="primary" 
+          onClick={handleSubmit}
+          >Submit Data To Cookie
+        </Button>{' '}
+
+        {/* Print Cookie to console button */}
+        <Button name='button2'
+          variant="primary"
+          onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))}
+          >Cookie Console.log
+        </Button>{' '}
+        
+      {/* Room Label */}
+      <h1> Render Room #{CookieService.get("1")} </h1>
+
+    {/* Calls CreateTable Component */}
+    <>
+      <CreateTable />
+    </>
     </div>
   );
 }
-}
 
-export default Example;
+export default JoinRoomPage;

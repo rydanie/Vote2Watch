@@ -19,50 +19,34 @@
       "id": 2,
       "roomId": 2,
       "name": "test"
-    },
-    {
-      "name": null,
-      "id": 3
-    },
-    {
-      "name": null,
-      "id": 4
-    },
-    {
-      "name": "1",
-      "id": 5
-    },
-    {
-      "name": "1",
-      "id": 6
     }
   ],
   "movies": [
     {
       "id": 0,
-      "ticker": "",
-      "stockPrice": 0,
+      "movieName": "",
+      "votes": 0,
       "timeElapsed": null,
       "roomId": 1
     },
     {
+      "id": 1,
+      "movieName": "Movie #1",
+      "votes": 14,
+      "timeElapsed": "",
+      "roomId": 1
+    },
+    {
+      "id": 2,
+      "movieName": "movie #2",
+      "votes": 4,
+      "timeElapsed": "",
+      "roomId": 1
+    },
+    {
       "id": 3,
-      "ticker": "new movie",
-      "stockPrice": 5,
-      "timeElapsed": "",
-      "roomId": 1
-    },
-    {
-      "id": 4,
-      "ticker": "movie #2",
-      "stockPrice": 2,
-      "timeElapsed": "",
-      "roomId": 1
-    },
-    {
-      "id": 5,
-      "ticker": "ROOM 2 Movie",
-      "stockPrice": 2,
+      "movieName": "ROOM 2 Movie",
+      "votes": 5,
       "timeElapsed": "",
       "roomId": 2
     }
