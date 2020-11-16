@@ -1,10 +1,11 @@
 import Cookie from 'universal-cookie'
 
 // Creates a new Cookie, only works on localhost
-const cookie = new Cookie();
+const cookie = new Cookie(["user"]);
+
 
 class CookieService {
-    // Gets theinformation in the cookie at the key. Currently using key = "1" for storing roomId
+    // Gets the information in the cookie at the key. Currently using key = "1" for storing roomId
     get(key: string) {
         return cookie.get(key);
     }

@@ -5,12 +5,12 @@ import CreateTable from "../components/createtable"
 
 const JoinRoomPage = (event: any) => {
 
-  // Variable for the users room input
+  // Variable for storing the users room input
   const [roomInput, setRoomInput] = useState("");
 
   // Sets the users cookie to the roomInput
   const handleSubmit = e => {
-     CookieService.set(1, roomInput, "test")
+     CookieService.set("RoomID", roomInput, { path: '/' } )
      window.location.reload()
   }
 
@@ -54,12 +54,12 @@ const JoinRoomPage = (event: any) => {
         {/* Print Cookie to console button */}
         <Button name='button2'
           variant="primary"
-          onClick={(e) => console.log("getting Cookie: "+CookieService.get("1"))}
+          onClick={(e) => console.log("getting Cookie: "+CookieService.get("RoomID"))}
           >Cookie Console.log
         </Button>{' '}
         
       {/* Room Label */}
-      <h1> Render Room #{CookieService.get("1")} </h1>
+      <h1> Render Room #{CookieService.get("RoomID")} </h1>
 
     {/* Calls CreateTable Component */}
     <>

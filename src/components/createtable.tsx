@@ -21,7 +21,7 @@ const handleVote = async e => {
 // Takes in data and creates a row in the table if the movies roomID is the same as the roomID in the users cookie
 const CreateRow = ({ id, movieName, votes, timeElapsed, roomId }) => {
     if (!id) return <div />;
-    if (roomId.toString() === CookieService.get("1")){
+    if (roomId.toString() === CookieService.get("RoomID")){
         return (
             <table>
               <tbody>
