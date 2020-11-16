@@ -17,6 +17,19 @@ json-server --watch /home/systemsunknown/vote2watch/src/db.json --port 50501
 json-server --watch ./src/db.json --port 50501
 */
 
+/*
+** ToDo **
+Seperate game page from the join room page
+Implement global timer
+Voting results
+Limiting voting per user
+Flexbox for voting cards
+Real landing page
+**later** Host view
+Trash collection
+**later** timer changer
+*/
+
 function App() {
   return (
     <div>
