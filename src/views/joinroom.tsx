@@ -10,6 +10,7 @@ const JoinRoomPage = (event: any) => {
 
   // Sets the users cookie to the roomInput
   const handleSubmit = e => {
+    
      CookieService.set("RoomID", roomInput, { path: '/' } )
      window.location.reload()
   }
@@ -44,27 +45,15 @@ const JoinRoomPage = (event: any) => {
         </Form>
 
         {/* Submit Button */}
-        <Button 
-          name='button1' 
-          variant="primary" 
-          onClick={handleSubmit}
-          >Submit Data To Cookie
-        </Button>{' '}
-
-        {/* Print Cookie to console button */}
-        <Button name='button2'
-          variant="primary"
-          onClick={(e) => console.log("getting Cookie: "+CookieService.get("RoomID"))}
-          >Cookie Console.log
-        </Button>{' '}
+        <a href="gameroom">
+          <Button 
+            name='button1' 
+            variant="primary" 
+            onClick={handleSubmit}
+            >Join Room
+          </Button>{' '}
+        </a>
         
-      {/* Room Label */}
-      <h1> Render Room #{CookieService.get("RoomID")} </h1>
-
-    {/* Calls CreateTable Component */}
-    <>
-      <CreateTable />
-    </>
     </div>
   );
 }

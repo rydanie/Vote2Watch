@@ -10,15 +10,19 @@ const Example = (props: any) => {
       justifyContent:'center',
       }}>
 
+  
     
     <div text-align="center"> 
-      <Button  size="lg" color="primary">test button</Button>
-      <Button  size="lg" color="primary">test button2</Button>
       <div text-align="center">
-        <Button  size="lg" color="primary">test button3</Button>
+        <a href="createserverpage">
+          <Button size="lg" color="primary">Create A Room</Button>
+        </a>
       </div>
+
       <div>
-        <Button  size="lg" color="primary">test button3</Button>
+        <a href="joinroompage">
+          <Button  size="lg" color="primary">Join A Room</Button>
+        </a>
       </div>
     </div>
 
