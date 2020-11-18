@@ -20,6 +20,7 @@ json-server --watch ./src/db.json --port 50501
 /*
 ** ToDo **
 Seperate game page from the join room page
+Create random RoomID + Page
 Implement global timer
 Voting results
 Limiting voting per user
