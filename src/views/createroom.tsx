@@ -11,7 +11,8 @@ var HostRoomID = GenRoomID();
 
 axios.post("/rooms", {
     "id": "",
-    "roomId": HostRoomID
+    "roomId": HostRoomID,
+    "round": 1
 })
 
 
