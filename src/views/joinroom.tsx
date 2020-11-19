@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import CookieService from "../components/cookieservice"
-import CreateTable from "../components/createtable"
+import { useHistory } from "react-router-dom";
 
 
 const JoinRoomPage = (event: any) => {
+
+  let history = useHistory()
 
   // Variable for storing the users room input
   const [roomInput, setRoomInput] = useState("");
 
   // Sets the users cookie to the roomInput
   const handleSubmit = e => {
-    
      CookieService.set("RoomID", roomInput, { path: '/' } )
-     
-     //window.location.replace("gameroom");
-     //window.location.reload()
+     history.push("/round1")
   }
 
   // Checks if the users keypress is the enter key so pressing 'enter' triggers handleSubmit
