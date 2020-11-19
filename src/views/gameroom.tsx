@@ -7,17 +7,17 @@ import Database from "../db.json";
 const GameRoom = (props: any) => {
   let userRoomID = CookieService.get("RoomID");
   let i=0
-  console.log("length: "+Database.rooms.length);
-  while (Database.rooms[i]?.name != userRoomID && i<Database.rooms.length) {
-    console.log("i="+Database.rooms[i]?.name)
+  
+  while (Database.rooms[i]?.roomId != userRoomID && i<Database.rooms.length) {
     i++
   }
-  console.log("final: "+Database.rooms[i]?.name)
+  console.log("Search DB for RoomID from Cookie: "+Database.rooms[i]?.roomId)
+  console.log("Round of RoomID: "+Database.rooms[i]?.round)
 
   return (
     <div>
         {/* Room Label */}
-        <h1> Game Room #{CookieService.get("RoomID")} </h1>
+        <h1> Game Room #{userRoomID} </h1>
 
         <div>
             <CreateTable />
