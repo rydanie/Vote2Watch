@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <a href="createserverpage">
+        <a href="createroom">
         <Button color="primary" active={true} size="lg">Create a Room</Button>
         </a>
         <br /><br />
