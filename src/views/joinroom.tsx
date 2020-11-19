@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import CookieService from "../components/cookieservice"
 import CreateTable from "../components/createtable"
 
+
 const JoinRoomPage = (event: any) => {
 
   // Variable for storing the users room input
@@ -12,7 +13,9 @@ const JoinRoomPage = (event: any) => {
   const handleSubmit = e => {
     
      CookieService.set("RoomID", roomInput, { path: '/' } )
-     window.location.reload()
+     
+     //window.location.replace("gameroom");
+     //window.location.reload()
   }
 
   // Checks if the users keypress is the enter key so pressing 'enter' triggers handleSubmit
@@ -40,12 +43,13 @@ const JoinRoomPage = (event: any) => {
                     onChange= {handleChange}
                     value = {roomInput}
                     placeholder="Enter Room ID"
+                    rules={{ required: true }}
             />
         </FormGroup>
         </Form>
 
         {/* Submit Button */}
-        <a href="gameroom">
+        <a href="round1">
           <Button 
             name='button1' 
             variant="primary" 

@@ -11,6 +11,10 @@ import SecondPage from "./views/secondpage"
 import CreateServerPage from "./views/createserverpage"
 import JoinRoomPage from "./views/joinroom"
 import GameRoom from "./views/gameroom"
+import CreateRoom from "./views/createroom"
+import Round1 from "./views/round1"
+import Round2 from "./views/round2"
+
 
 /* 
 JSON-Server backed startup:
@@ -61,6 +65,18 @@ function App() {
 
             <Route path="/gameroom">
               <GameRoom />
+            </Route>
+
+            <Route path="/createroom">
+              <CreateRoom />
+            </Route>
+
+            <Route path="/round1">
+              <Round1 />
+            </Route>
+
+            <Route path="/round2">
+              <Round2 />
             </Route>
         
           </Switch>

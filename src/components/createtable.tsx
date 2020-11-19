@@ -71,7 +71,7 @@ const CreateTablePage = (props: any) => {
                                   movieName={data.movieName}
                                   votes={data.votes}
                                   timeElapsed={data.timeElapsed}
-                                  roomId={data.roomId} />
+                                  roomId={data.movieRoomID} />
                           </div>
                         );
                   } else {

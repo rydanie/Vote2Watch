@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { Button, Form, FormGroup, Input, Label, } from 'reactstrap';
+import CookieService from './cookieservice';
 
 const SubmitData = (event: any) => {
 
     // Variable to store user input of the movie title
     const [movieInput, setMovieInput] = useState("");
+    const [roomID, setRoomID] = useState("");
+
+    
 
     // Method to make HTTP requests to backend to create a movie entry
     const handleSubmit = e => {
@@ -14,7 +18,7 @@ const SubmitData = (event: any) => {
             "movieName": movieInput,
             "votes": 0,
             "timeElapsed": "",
-            "roomId": "1"
+            "movieRoomID": roomID
        })
     }
 
@@ -27,6 +31,7 @@ const SubmitData = (event: any) => {
 
     // Changes the movieInput variable with the users form input
     const handleChange = e => {
+        setRoomID(CookieService.get("RoomID"));
         setMovieInput(e.target.value);
     }
 

@@ -56,7 +56,7 @@ const handleVote = async e => {
   
   data.votes = data.votes+1
 
-  console.log(data)
+
   axios.put("/movies/"+e, data)
 }
 
