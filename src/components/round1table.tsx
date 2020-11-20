@@ -16,12 +16,12 @@ const CreateRow = ({ id, movieName, roomId }) => {
             </table>
           );
         }else{
-          return( <div /> )
+          return <div /> 
         }
 };
 
 // Main page element. Maps out movies from the database into the CreateRow Function
-const CreateTablePage = (props: any) => {
+const Round1Table = (props: any) => {
   return (
     <>
           <div className="stock-container">
@@ -45,4 +45,4 @@ const CreateTablePage = (props: any) => {
   );
 }
 
-export default CreateTablePage;
+export default Round1Table;

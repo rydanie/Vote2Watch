@@ -2,12 +2,12 @@
   "rooms": [
     {
       "id": 1,
-      "name": "room1",
+      "roomId": "room1",
       "round": 1
     },
     {
       "id": 2,
-      "name": "room2",
+      "roomId": "room2",
       "round": 1
     }
   ],
@@ -15,11 +15,6 @@
     {
       "id": 1,
       "name": 1,
-      "userName": "Ethan"
-    },
-    {
-      "id": 2,
-      "name": 2,
       "userName": "test"
     }
   ],
@@ -30,48 +25,6 @@
       "votes": 0,
       "timeElapsed": null,
       "movieRoomID": "NULL"
-    },
-    {
-      "id": 1,
-      "movieName": "Movie #1",
-      "votes": 16,
-      "timeElapsed": "",
-      "movieRoomID": "IOFL"
-    },
-    {
-      "id": 2,
-      "movieName": "movie #2",
-      "votes": 4,
-      "timeElapsed": "",
-      "movieRoomID": "1sdfsadf"
-    },
-    {
-      "id": 3,
-      "movieName": "ethan movie",
-      "votes": 0,
-      "timeElapsed": "",
-      "movieRoomID": "newroom"
-    },
-    {
-      "id": 4,
-      "movieName": "ryley movie",
-      "votes": 0,
-      "timeElapsed": "",
-      "movieRoomID": "newroom"
-    },
-    {
-      "id": 5,
-      "movieName": "movie 1",
-      "votes": 0,
-      "timeElapsed": "",
-      "movieRoomID": "teste"
-    },
-    {
-      "id": 6,
-      "movieName": "movie 2",
-      "votes": 0,
-      "timeElapsed": "",
-      "movieRoomID": "teste"
     }
   ],
   "profile": {

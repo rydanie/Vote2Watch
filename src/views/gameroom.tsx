@@ -1,8 +1,6 @@
 import React from 'react';
 import CookieService from '../components/cookieservice';
 import Database from "../db.json";
-import { Button } from 'reactstrap';
-import axios from 'axios';
 
 import Round1 from "./round1"
 import Round2 from "./round2"
@@ -12,25 +10,16 @@ import Round3 from "./round3"
 const GameRoom = (props: any) => {
   let userRoomID = CookieService.get("RoomID");
 
+  // Finds the index of the roomID (4-digit alphanumeric) based on user cookie
   let i=0
   while (Database.rooms[i]?.roomId != userRoomID && i<Database.rooms.length) {
     i++
   }
 
+  // Stores the round the room is in
   let roomRound = Database.rooms[i]?.round
-  console.log("Search DB for RoomID from Cookie: "+Database.rooms[i]?.roomId)
-  console.log("Round of RoomID: "+roomRound)
-
-  // Increments the rooms round by 1
-  const onSubmit = async () => {
-    let j = i+1
-    let res = await axios.get("/rooms/"+j)
-    let data = res.data
-    data.round = data.round+1
-
-    axios.put("/rooms/"+j, data)
-  }
   
+  // Conditional render round #1
   if(roomRound === 1){
     return(
       <div>
@@ -43,6 +32,8 @@ const GameRoom = (props: any) => {
       </div>
     )
   }
+
+  // Conditional render round #2
   if(roomRound === 2){
     return(
       <div>
@@ -55,6 +46,8 @@ const GameRoom = (props: any) => {
       </div>
     )
   }
+
+  // Conditional render round #3
   if(roomRound === 3){
     return(
       <div>
@@ -67,13 +60,14 @@ const GameRoom = (props: any) => {
       </div>
     )
   }
+
+  // Error if game round is out of range
   else{
     return(
-        <h1> Room not Found </h1>
+        <h1> Round not Found </h1>
     )
   }
   
 }
-
 
 export default GameRoom;

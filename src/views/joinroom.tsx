@@ -3,9 +3,7 @@ import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import CookieService from "../components/cookieservice"
 import { useHistory } from "react-router-dom";
 
-
 const JoinRoomPage = (event: any) => {
-
   let history = useHistory()
 
   // Variable for storing the users room input
@@ -33,7 +31,7 @@ const JoinRoomPage = (event: any) => {
     <div>
       <Form >
 
-        {/* Form Text Input */}
+        {/* Form text input to enter room ID */}
         <FormGroup>
             <Label for="RoomId">Enter Room ID</Label>
             <Input
@@ -55,7 +53,6 @@ const JoinRoomPage = (event: any) => {
           >Join Room
         </Button>{' '}
        
-        
     </div>
   );
 }

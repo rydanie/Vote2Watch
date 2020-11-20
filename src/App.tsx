@@ -14,8 +14,6 @@ import HostGameRoom from "./views/hostgameroom"
 import GameRoom from "./views/gameroom"
 import CreateRoom from "./views/createroom"
 
-
-
 /* 
 JSON-Server backed startup:
 json-server --watch /home/systemsunknown/vote2watch/src/db.json --port 50501
@@ -24,8 +22,8 @@ json-server --watch ./src/db.json --port 50501
 
 /*
 ** ToDo **
-Seperate game page from the join room page
-Create random RoomID + Page
+DONE - Seperate game page from the join room page
+DONE - Create random RoomID + Page
 Implement global timer
 Voting results
 Limiting voting per user
@@ -74,8 +72,6 @@ function App() {
             <Route path="/createroom">
               <CreateRoom />
             </Route>
-
-            
         
           </Switch>
         </div>
