@@ -9,8 +9,6 @@ const SubmitData = (event: any) => {
     const [movieInput, setMovieInput] = useState("");
     const [roomID, setRoomID] = useState("");
 
-    
-
     // Method to make HTTP requests to backend to create a movie entry
     const handleSubmit = e => {
         axios.post("/movies", {

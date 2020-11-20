@@ -10,10 +10,10 @@ import LandingPage from "./views/landingpage"
 import SecondPage from "./views/secondpage"
 import CreateServerPage from "./views/createserverpage"
 import JoinRoomPage from "./views/joinroom"
+import HostGameRoom from "./views/hostgameroom"
 import GameRoom from "./views/gameroom"
 import CreateRoom from "./views/createroom"
-import Round1 from "./views/round1"
-import Round2 from "./views/round2"
+
 
 
 /* 
@@ -63,6 +63,10 @@ function App() {
               <JoinRoomPage />
             </Route>
 
+            <Route path="/hostgameroom">
+              <HostGameRoom />
+            </Route>
+
             <Route path="/gameroom">
               <GameRoom />
             </Route>
@@ -71,13 +75,7 @@ function App() {
               <CreateRoom />
             </Route>
 
-            <Route path="/round1">
-              <Round1 />
-            </Route>
-
-            <Route path="/round2">
-              <Round2 />
-            </Route>
+            
         
           </Switch>
         </div>

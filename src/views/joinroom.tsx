@@ -14,7 +14,7 @@ const JoinRoomPage = (event: any) => {
   // Sets the users cookie to the roomInput
   const handleSubmit = e => {
      CookieService.set("RoomID", roomInput, { path: '/' } )
-     history.push("/round1")
+     history.push("/gameroom")
   }
 
   // Checks if the users keypress is the enter key so pressing 'enter' triggers handleSubmit
@@ -48,14 +48,13 @@ const JoinRoomPage = (event: any) => {
         </Form>
 
         {/* Submit Button */}
-        <a href="round1">
-          <Button 
-            name='button1' 
-            variant="primary" 
-            onClick={handleSubmit}
-            >Join Room
-          </Button>{' '}
-        </a>
+        <Button 
+          name='button1' 
+          variant="primary" 
+          onClick={handleSubmit}
+          >Join Room
+        </Button>{' '}
+       
         
     </div>
   );

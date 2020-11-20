@@ -51,7 +51,7 @@ const CreateRow = ({ id, movieName, votes, timeElapsed, roomId }) => {
             </table>
           );
         }else{
-          return(<h1> Movie not in RoomID </h1>)
+          return <div />
         }
 };
 
@@ -59,7 +59,6 @@ const CreateRow = ({ id, movieName, votes, timeElapsed, roomId }) => {
 const CreateTablePage = (props: any) => {
   return (
     <>
-    <a href="landingpage"> go to the main page</a>
           <div className="stock-container">
               {Database.movies.map((data, key) => {
                   if (Database.movies.length > 1) {

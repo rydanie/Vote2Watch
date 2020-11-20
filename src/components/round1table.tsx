@@ -1,0 +1,48 @@
+import React from 'react';
+import Database from "../db.json";
+import CookieService from './cookieservice';
+
+// Takes in data and creates a row in the table if the movies roomID is the same as the roomID in the users cookie
+const CreateRow = ({ id, movieName, roomId }) => {
+    if (!id) return <div />;
+    if (roomId.toString() === CookieService.get("RoomID")){
+        return (
+            <table>
+              <tbody>
+                <tr>
+                    <h2>{movieName}</h2>
+                </tr>
+              </tbody>
+            </table>
+          );
+        }else{
+          return( <div /> )
+        }
+};
+
+// Main page element. Maps out movies from the database into the CreateRow Function
+const CreateTablePage = (props: any) => {
+  return (
+    <>
+          <div className="stock-container">
+              {Database.movies.map((data, key) => {
+                  if (Database.movies.length > 1) {
+                      return (
+                          <div key={key}>
+                              <CreateRow
+                                  key={key}
+                                  id={data.id}
+                                  movieName={data.movieName}
+                                  roomId={data.movieRoomID} />
+                          </div>
+                        );
+                  } else {
+                      return (<h1> Database Error </h1>);
+                  }
+              })}
+          </div>
+    </>
+  );
+}
+
+export default CreateTablePage;

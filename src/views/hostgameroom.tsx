@@ -13,7 +13,7 @@ const GameRoom = (props: any) => {
   let userRoomID = CookieService.get("RoomID");
 
   let i=0
-  while (Database.rooms[i]?.roomId != userRoomID && i<Database.rooms.length) {
+  while (Database.rooms[i]?.roomId !== userRoomID && i<Database.rooms.length) {
     i++
   }
 
@@ -36,8 +36,12 @@ const GameRoom = (props: any) => {
       <div>
       <a href="landingpage"> go to the main page</a>
       {/* Room Label */}
+      <h1> - Host View - </h1>
       <h1> Game Room: {userRoomID} </h1>
       <h1>Round #1</h1>
+        <div>
+            <Button onClick={onSubmit} color="primary">Move To Round #2</Button>{' '}
+        </div>
   
       <Round1 />
       </div>
@@ -48,8 +52,12 @@ const GameRoom = (props: any) => {
       <div>
         <a href="landingpage"> go to the main page</a>
         {/* Room Label */}
+        <h1> - Host View - </h1>
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #2</h1>
+          <div>
+              <Button onClick={onSubmit} color="primary">Move To Round #3</Button>{' '}
+          </div>
 
         <Round2 />
       </div>
