@@ -46,8 +46,13 @@ const HomePageHeader = () => {
     );
   };
 
-const handleDelete = e => {
-    axios.delete("movies/"+e)
+const handleDelete = async e => {
+  let res = await axios.get("rooms")
+  let data = res.data
+  let newData = data
+  axios.delete("movies/"+e)
+ 
+  axios.post("rooms", newData)
 }
 
 const handleVote = async e => {

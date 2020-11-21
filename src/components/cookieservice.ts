@@ -10,7 +10,7 @@ class CookieService {
     }
 
     // Sets information in the cookie at index 'key' to have the data variables 'value' an 'options'. Currently using 'value' to store the roomId
-    set(key, value, options) {
+    set(key: any, value: any, options: any) {
         cookie.set(key, value, options);
     }
 

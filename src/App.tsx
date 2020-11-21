@@ -22,16 +22,11 @@ json-server --watch ./src/db.json --port 50501
 
 /*
 ** ToDo **
-DONE - Seperate game page from the join room page
-DONE - Create random RoomID + Page
-Implement global timer
 Voting results
 Limiting voting per user
 Flexbox for voting cards
 Real landing page
-**later** Host view
 Trash collection
-**later** timer changer
 */
 
 function App() {

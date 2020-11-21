@@ -22,7 +22,7 @@ const CreateRoom = (props: any) => {
     // Creates room in backend
     axios.post("/rooms", {
       "id": "",
-      "roomId": HostRoomID,
+      "name": HostRoomID,
       "round": 1
     })
     

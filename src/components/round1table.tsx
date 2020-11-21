@@ -37,7 +37,7 @@ const Round1Table = (props: any) => {
                           </div>
                         );
                   } else {
-                      return (<h1> Database Error </h1>);
+                      return <div />
                   }
               })}
           </div>
