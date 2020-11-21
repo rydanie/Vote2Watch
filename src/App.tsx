@@ -5,14 +5,16 @@ import {
   Route
 } from "react-router-dom";
 
-// Importing page modules from /view directory
-import LandingPage from "./views/landingpage"
+// TO REMOVE - TESTING
 import SecondPage from "./views/secondpage"
 import CreateServerPage from "./views/createserverpage"
+
+// Importing page modules from /view directory
+import LandingPage from "./views/landingpage"
+import CreateRoomPage from "./views/createroompage"
 import JoinRoomPage from "./views/joinroom"
 import HostGameRoom from "./views/hostgameroom"
 import GameRoom from "./views/gameroom"
-import CreateRoom from "./views/createroom"
 
 /* 
 JSON-Server backed startup:
@@ -44,12 +46,8 @@ function App() {
               <LandingPage />
             </Route>
 
-            <Route path="/secondpage">
-              <SecondPage />
-            </Route>
-
-            <Route path="/createserverpage">
-              <CreateServerPage />
+            <Route path="/createroomPage">
+              <CreateRoomPage />
             </Route>
 
             <Route path="/joinroompage">
@@ -64,8 +62,13 @@ function App() {
               <GameRoom />
             </Route>
 
-            <Route path="/createroom">
-              <CreateRoom />
+            {/* To Remove */}
+            <Route path="/secondpage">
+              <SecondPage />
+            </Route>
+
+            <Route path="/createserverpage">
+              <CreateServerPage />
             </Route>
         
           </Switch>
