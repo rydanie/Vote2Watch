@@ -11,7 +11,7 @@ const JoinRoomPage = (event: any) => {
 
   // Sets the users cookie to the roomInput
   const handleSubmit = e => {
-     CookieService.set("RoomID", roomInput, { path: '/' } )
+     CookieService.set("RoomID", roomInput.toUpperCase(), { path: '/' } )
      history.push("/gameroom")
   }
 
