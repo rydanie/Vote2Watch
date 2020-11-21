@@ -1,12 +1,12 @@
 import React from 'react';
 import Database from "../db.json";
-import CookieService from '../components/cookieservice';
+import CookieService from './cookieservice';
 
 // Array storing all the movie objects in the room
 let ArrayOfMovies: any[] = [];
 
 // Main page element. Maps out movies from the database into the CreateRow Function
-const ResultsPage = (props: any) => {
+const Results = (props: any) => {
   
   // Maps out all movies in the database
   Database.movies.map((data, key) => {
@@ -35,4 +35,4 @@ const ResultsPage = (props: any) => {
   }
 }
 
-export default ResultsPage;
+export default Results;

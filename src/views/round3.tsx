@@ -1,11 +1,10 @@
 import React from 'react';
-import ResultsPage from "../views/resultspage"
+import Results from "../components/results"
 
 const Example = (props: any) => {
   return (
     <div>
-      <h1> Voting Results: </h1>
-      <ResultsPage />
+      <Results />
     </div>
   );
 }

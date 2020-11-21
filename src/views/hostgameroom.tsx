@@ -8,7 +8,6 @@ import Round1 from "./round1"
 import Round2 from "./round2"
 import Round3 from "./round3"
 
-
 const GameRoom = (props: any) => {
   let userRoomID = CookieService.get("RoomID");
 
@@ -27,7 +26,6 @@ const GameRoom = (props: any) => {
     let res = await axios.get("/rooms/"+j)
     let data = res.data
     data.round = data.round+1
-
     axios.put("/rooms/"+j, data)
   }
   
@@ -35,16 +33,15 @@ const GameRoom = (props: any) => {
   if(roomRound === 1){
     return(
       <div>
-      <a href="landingpage"> go to the main page</a>
-      {/* Room Label */}
-      <h1> - Host View - </h1>
-      <h1> Game Room: {userRoomID} </h1>
-      <h1>Round #1</h1>
+        <a href="landingpage"> go to the main page</a>
+        {/* Room Label */}
+        <h1> - Host View - </h1>
+        <h1> Game Room: {userRoomID} </h1>
+        <h1>Round #1</h1>
         <div>
             <Button onClick={onSubmit} color="primary">Move To Round #2</Button>{' '}
         </div>
-  
-      <Round1 />
+        <Round1 />
       </div>
     )
   }
@@ -58,10 +55,9 @@ const GameRoom = (props: any) => {
         <h1> - Host View - </h1>
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #2</h1>
-          <div>
-              <Button onClick={onSubmit} color="primary">Move To Round #3</Button>{' '}
-          </div>
-
+        <div>
+            <Button onClick={onSubmit} color="primary">Move To Round #3</Button>{' '}
+        </div>
         <Round2 />
       </div>
     )
@@ -73,9 +69,9 @@ const GameRoom = (props: any) => {
       <div>
         <a href="landingpage"> go to the main page</a>
         {/* Room Label */}
+        <h1> - Host View - </h1>
         <h1> Game Room: {userRoomID} </h1>
-        <h1>Round #3</h1>
-
+        <h1> Voting Results: </h1>
         <Round3 />
       </div>
     )
