@@ -1,9 +1,11 @@
 import React from 'react';
+import ResultsPage from "../views/resultspage"
 
 const Example = (props: any) => {
   return (
     <div>
-      <h3> Testing of Round #3 </h3>
+      <h1> Voting Results: </h1>
+      <ResultsPage />
     </div>
   );
 }
