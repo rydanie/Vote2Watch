@@ -5,12 +5,16 @@ import CookieService from './cookieservice';
 import axios from "axios";
 
 // Makes HTTP request to delete movie from database
-const handleDelete = e => {
-    axios.delete("movies/"+e)
+const handleDelete = async (e: any) => {
+  // 
+  //let res = await axios.get("rooms/")
+  //let data = res.data
+  axios.delete("movies/"+e)
+  //axios.post("rooms", data)
 }
   
 // Makes HTTP request to increment the movies vote by 1
-const handleVote = async e => {
+const handleVote = async (e: any) => {
     let res = await axios.get("/movies/"+e)
     let data = res.data
   

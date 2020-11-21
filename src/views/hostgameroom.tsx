@@ -14,7 +14,7 @@ const GameRoom = (props: any) => {
 
   // Finds the index of the roomID (4-digit alphanumeric) based on user cookie
   let i=0 
-  while (Database.rooms[i]?.roomId !== userRoomID && i<Database.rooms.length) {
+  while (Database.rooms[i]?.name !== userRoomID && i<Database.rooms.length) {
     i++
   }
 

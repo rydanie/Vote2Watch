@@ -2,20 +2,8 @@
   "rooms": [
     {
       "id": 1,
-      "roomId": "room1",
+      "name": "room1",
       "round": 1
-    },
-    {
-      "id": 2,
-      "roomId": "room2",
-      "round": 1
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "name": 1,
-      "userName": "test"
     }
   ],
   "movies": [
