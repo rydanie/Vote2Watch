@@ -9,12 +9,10 @@ export const CreateServerPage = () => {
  
     return (
       <>
-        <a href="landingpage"> go to the main page</a>
         <HomePageHeader />
         <div className="stock-container">
           {Database.movies.map((data, key) => {
             if(Database.movies.length > 1){
-            
             return (
               <div key={key}>
                 <CreateTable

@@ -34,7 +34,7 @@ const CreateRoom = (props: any) => {
   }
   
   return (
-    <div>
+    <div style={{margin: '5%'}}>
       <h1>Create A Room</h1>
       <h2>Room ID: {HostRoomID}</h2>
       <Button onClick={onSubmit} color="primary">Start Game</Button>{' '}

@@ -34,6 +34,7 @@ function App() {
     <div>
       <Router>
         <div>
+        <a href="landingpage" style={{margin: "3%"}}>Home</a>
           <Switch>
 
             <Route exact path="/">

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import { Button } from 'reactstrap';
+import ReactGA from "react-ga";
 
 class App extends Component {
-  
   render() {
+    ReactGA.initialize('G-HQRXE9XGW9');
     return(
-      <div className="App">
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
+      <div style={{marginTop: '35%'}}  className="App">
+        
         <a href="createroompage">
           <Button color="primary" active={true} size="lg">Create a Room</Button>
         </a>

@@ -22,18 +22,25 @@ const Results = (props: any) => {
 
   // Returns results if there was a two way tie
   if(ArrayOfMovies[0]?.votes === ArrayOfMovies[1]?.votes){
-    return (<h2>{ArrayOfMovies[0]?.movieName} is tied with {ArrayOfMovies[1]?.movieName} as winner with {ArrayOfMovies[0]?.votes} votes</h2>)
+    return (
+      <h2>
+        <span style={{color: "red"}}>{ArrayOfMovies[0]?.movieName}
+        </span> is tied with <span style={{color: "red"}}>{ArrayOfMovies[1]?.movieName}
+        </span> as winner with <span style={{color: "red"}}>
+        {ArrayOfMovies[0]?.votes}
+        </span> votes
+      </h2>
+    )
   }
   
   // Returns results if there is a single winner
   else{
-    
     return (
-    <div> 
       <h2> 
         <span style={{color: "red"}}>{ArrayOfMovies[0]?.movieName}
-        </span> is the winner with <span style={{color: "red"}}>{ArrayOfMovies[0]?.votes}</span> votes</h2> 
-    </div>
+        </span> is the winner with <span style={{color: "red"}}>{ArrayOfMovies[0]?.votes}
+        </span> votes
+      </h2> 
     )
   }
 }

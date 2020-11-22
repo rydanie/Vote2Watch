@@ -57,21 +57,20 @@ const CheckDeleteButton = (id) => {
   }
 }
 
-// Takes in data and creates a row in the table if the movies roomID is the same as the roomID in the users cookie
-const CreateRow = ({ id, movieName, votes, timeElapsed, roomId }) => {
+// Takes in data and creates a card in the flex box if the movies roomID is the same as the roomID in the users cookie
+const CreateCard = ({ id, movieName, votes, timeElapsed, roomId }) => {
   if (!id) return <div />;
     if (roomId.toString() === CookieService.get("RoomID")){
       return ( 
-        
-        <Col sm="20" style={{width: 200}}>
+        <Col sm="20" style={{width: 200, padding: 5} }>
           <Card body>
             <CardTitle tag="h2" > <b> {movieName} </b> </CardTitle>
             <CardText>Votes: {votes}</CardText>
             {CheckVotesButton(id)}
+
             {CheckDeleteButton(id)}
           </Card>
-        </Col>
-              
+        </Col>   
         );
       }else{
       return <div />
@@ -81,7 +80,6 @@ const CreateRow = ({ id, movieName, votes, timeElapsed, roomId }) => {
 
 // Main page element. Maps out movies from the database into the CreateRow Function
 const CreateTablePage = (props: any) => {
-  let Votes: number = CookieService.get("Votes")
     return (
       <>
         <div style={{display: "flex", flexDirection: "row", flexFlow: "row wrap", margin: "6", width: "80%" }}>
@@ -90,7 +88,7 @@ const CreateTablePage = (props: any) => {
               return (
                 <div key={key} >
                   
-                  <CreateRow
+                  <CreateCard
                     key={key}
                     id={data.id}
                     movieName={data.movieName}

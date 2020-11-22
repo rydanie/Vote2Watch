@@ -30,7 +30,7 @@ const JoinRoomPage = (event: any) => {
   }
 
   return (
-    <div>
+    <div style={{margin: '5%'}}>
       <Form >
 
         {/* Form text input to enter room ID */}

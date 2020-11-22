@@ -32,15 +32,12 @@ const GameRoom = (props: any) => {
   // Conditional render round #1
   if(roomRound === 1){
     return(
-      <div>
-        <a href="landingpage"> go to the main page</a>
+      <div style={{margin: '3%'}}>
         {/* Room Label */}
         <h1> - Host View - </h1>
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #1</h1>
-        <div>
-            <Button onClick={onSubmit} color="primary">Move To Round #2</Button>{' '}
-        </div>
+        <Button onClick={onSubmit} color="primary">Move To Round #2</Button>{' '}
         <Round1 />
       </div>
     )
@@ -49,14 +46,13 @@ const GameRoom = (props: any) => {
   // Conditional render round #2
   if(roomRound === 2){
     return(
-      <div>
-        <a href="landingpage"> go to the main page</a>
+      <div style={{margin: '3%'}}>
         {/* Room Label */}
         <h1> - Host View - </h1>
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #2</h1>
         <div>
-            <Button onClick={onSubmit} color="primary">Move To Round #3</Button>{' '}
+            <Button onClick={onSubmit} color="primary">Move To Voting Results</Button>{' '}
         </div>
         <Round2 />
       </div>
@@ -66,8 +62,7 @@ const GameRoom = (props: any) => {
   // Conditional render round #3
   if(roomRound === 3){
     return(
-      <div>
-        <a href="landingpage"> go to the main page</a>
+      <div style={{margin: '3%'}}>
         {/* Room Label */}
         <h1> - Host View - </h1>
         <h1> Game Room: {userRoomID} </h1>

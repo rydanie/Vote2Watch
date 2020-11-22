@@ -25,6 +25,13 @@ const Round1Table = (props: any) => {
   return (
     <>
           <div className="stock-container">
+            <table>
+              <tbody>
+                <tr>
+                  <h2 style={{fontSize:40}}> <b> Movies </b> </h2>
+                </tr>
+              </tbody>
+            </table>
               {Database.movies.map((data, key) => {
                   if (Database.movies.length > 1) {
                       return (
