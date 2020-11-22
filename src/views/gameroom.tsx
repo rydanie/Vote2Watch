@@ -23,11 +23,9 @@ const GameRoom = (props: any) => {
   if(roomRound === 1){
     return(
       <div>
-      <a href="landingpage"> go to the main page</a>
       {/* Room Label */}
       <h1> Game Room: {userRoomID} </h1>
       <h1>Round #1</h1>
-  
       <Round1 />
       </div>
     )
@@ -37,11 +35,9 @@ const GameRoom = (props: any) => {
   if(roomRound === 2){
     return(
       <div>
-        <a href="landingpage"> go to the main page</a>
         {/* Room Label */}
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #2</h1>
-
         <Round2 />
       </div>
     )
@@ -51,11 +47,9 @@ const GameRoom = (props: any) => {
   if(roomRound === 3){
     return(
       <div>
-        <a href="landingpage"> go to the main page</a>
         {/* Room Label */}
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #3</h1>
-
         <Round3 />
       </div>
     )
