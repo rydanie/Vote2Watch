@@ -80,7 +80,7 @@ const GameRoom = (props: any) => {
   // Error if game round is out of range
   else{
     return(
-        <h1> Round not Found </h1>
+        <h1> Loading Room </h1>
     )
   }
   

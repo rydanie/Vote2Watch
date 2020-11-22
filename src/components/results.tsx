@@ -27,7 +27,14 @@ const Results = (props: any) => {
   
   // Returns results if there is a single winner
   else{
-    return (<h2>{ArrayOfMovies[0]?.movieName} is the winner with {ArrayOfMovies[0]?.votes} votes</h2>)
+    
+    return (
+    <div> 
+      <h2> 
+        <span style={{color: "red"}}>{ArrayOfMovies[0]?.movieName}
+        </span> is the winner with <span style={{color: "red"}}>{ArrayOfMovies[0]?.votes}</span> votes</h2> 
+    </div>
+    )
   }
 }
 
