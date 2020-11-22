@@ -18,7 +18,6 @@ const CreateRoom = (props: any) => {
   CookieService.set("Votes", 0, { path: '/' } )
   CookieService.set("Deletes", 0, { path: '/' } )
   
-
   // On submit to start game
   const onSubmit = () => {
 
@@ -36,7 +35,7 @@ const CreateRoom = (props: any) => {
   
   return (
     <div>
-      <h1>Create A Room Page</h1>
+      <h1>Create A Room</h1>
       <h2>Room ID: {HostRoomID}</h2>
       <Button onClick={onSubmit} color="primary">Start Game</Button>{' '}
     </div>

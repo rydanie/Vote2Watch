@@ -24,11 +24,9 @@ json-server --watch ./src/db.json --port 50501
 
 /*
 ** ToDo **
-Voting results
-Limiting voting per user
 Flexbox for voting cards
-Real landing page
 Trash collection
+*later* Flash info to user that others have veto'd a movie
 */
 
 function App() {

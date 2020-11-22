@@ -9,7 +9,12 @@ const handleDelete = async (e: any) => {
   let addDelete = (CookieService.get("Deletes"))
   addDelete++
   CookieService.set("Deletes", addDelete, { path: '/' } )
-  axios.delete("movies/"+e)
+  //axios.delete("movies/"+e)
+
+  let res = await axios.get("/movies/"+e)
+  let data = res.data
+  data.votes = data.votes-1
+  axios.put("/movies/"+e, data)
 }
   
 // Makes HTTP request to increment the movies vote by 1
@@ -17,13 +22,14 @@ const handleVote = async (e: any) => {
   let addVote = (CookieService.get("Votes"))
   addVote++
   CookieService.set("Votes", addVote, { path: '/' } )
+
   let res = await axios.get("/movies/"+e)
   let data = res.data
-
   data.votes = data.votes+1
   axios.put("/movies/"+e, data)
 }
 
+// Renders vote button if the user has voted less than 3 times
 const CheckVotesButton = (id) => {
   let Votes: number = CookieService.get("Votes")
   if (Votes < 3){
@@ -37,15 +43,16 @@ const CheckVotesButton = (id) => {
   }
 }
 
+// Render the delete button if the user has not voted yet
 const CheckDeleteButton = (id) => {
   let Deletes: number = CookieService.get("Deletes")
   if (Deletes < 1){
     return (
-      <Button onClick={(e) => {handleDelete(id)} } >Delete</Button>
+      <Button onClick={(e) => {handleDelete(id)} } >Veto</Button>
     )
   }else{
     return (
-      <h5>Out of Deletes</h5>
+      <h5>Out of Veto</h5>
     )
   }
 }
@@ -54,33 +61,17 @@ const CheckDeleteButton = (id) => {
 const CreateRow = ({ id, movieName, votes, timeElapsed, roomId }) => {
   if (!id) return <div />;
     if (roomId.toString() === CookieService.get("RoomID")){
-      return (
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <h5>{id}</h5>
-              </td>
-              <td>
-                <h5>{movieName}</h5>
-                <Col sm="6">
-                  <Card body>
-                    <CardTitle>{movieName}</CardTitle>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    {CheckDeleteButton(id)}
-                    {CheckVotesButton(id)}
-                  </Card>
-                </Col>
-              </td>
-              <td>
-                <h4>{votes}</h4>
-              </td>
-              <td>
-                <p>{timeElapsed}</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      return ( 
+        
+        <Col sm="20" style={{width: 200}}>
+          <Card body>
+            <CardTitle tag="h2" > <b> {movieName} </b> </CardTitle>
+            <CardText>Votes: {votes}</CardText>
+            {CheckVotesButton(id)}
+            {CheckDeleteButton(id)}
+          </Card>
+        </Col>
+              
         );
       }else{
       return <div />
@@ -93,11 +84,12 @@ const CreateTablePage = (props: any) => {
   let Votes: number = CookieService.get("Votes")
     return (
       <>
-        <div className="stock-container">
+        <div style={{display: "flex", flexDirection: "row", flexFlow: "row wrap", margin: "6", width: "80%" }}>
           {Database.movies.map((data, key) => {
             if (Database.movies.length > 1) {
               return (
-                <div key={key}>
+                <div key={key} >
+                  
                   <CreateRow
                     key={key}
                     id={data.id}
