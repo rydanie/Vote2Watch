@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { Button } from 'reactstrap';
-import ReactGA from "react-ga";
+
 
 class App extends Component {
   render() {
-    ReactGA.initialize('G-HQRXE9XGW9');
+    
     return(
       <div className="App">
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

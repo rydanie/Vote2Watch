@@ -15,7 +15,6 @@ import GameRoom from "./views/gameroom"
 
 /* 
 JSON-Server backed startup:
-json-server --watch /home/systemsunknown/vote2watch/src/db.json --port 50501
 json-server --watch ./src/db.json --port 50501
 */
 
