@@ -1,13 +1,10 @@
 import React from 'react';
+import "./views/createserverpage.css";
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-
-// TO REMOVE - TESTING
-import SecondPage from "./views/secondpage"
-import CreateServerPage from "./views/createserverpage"
 
 // Importing page modules from /view directory
 import LandingPage from "./views/landingpage"
@@ -45,7 +42,7 @@ function App() {
               <LandingPage />
             </Route>
 
-            <Route path="/createroomPage">
+            <Route path="/createroompage">
               <CreateRoomPage />
             </Route>
 
@@ -59,15 +56,6 @@ function App() {
 
             <Route path="/gameroom">
               <GameRoom />
-            </Route>
-
-            {/* To Remove */}
-            <Route path="/secondpage">
-              <SecondPage />
-            </Route>
-
-            <Route path="/createserverpage">
-              <CreateServerPage />
             </Route>
         
           </Switch>

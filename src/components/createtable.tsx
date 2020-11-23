@@ -64,7 +64,7 @@ const CreateCard = ({ id, movieName, votes, timeElapsed, roomId }) => {
       return ( 
         <Col sm="20" style={{width: 200, padding: 5} }>
           <Card body>
-            <CardTitle tag="h2" > <b> {movieName} </b> </CardTitle>
+            <CardTitle style={{fontSize: '1.5vw'}} > <b> {movieName} </b> </CardTitle>
             <CardText>Votes: {votes}</CardText>
             {CheckVotesButton(id)}
 
