@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Card, CardTitle, CardText, Button } from 'reactstrap';
 import Database from "../db.json";
 import CookieService from './cookieservice';
@@ -69,6 +69,9 @@ const CheckDeleteButton = (id) => {
 // Main page element. Maps out movies from the database into the CreateRow Function
 const CreateTablePage = (props: any) => {
 
+  const [oldVote, setOldVote] = useState('');
+  const [color, setColor] = useState('black');
+
   const CreateCard = ({ id, movieName, votes, timeElapsed, roomId }) => {
     if (!id) return <div />;
       if (roomId.toString() === CookieService.get("RoomID")){
@@ -77,8 +80,9 @@ const CreateTablePage = (props: any) => {
             <Card body>
               <CardTitle style={{fontSize: '20px'}} > <b> {movieName} </b> </CardTitle>
               {/*setVotes(votes)*/}
-              {/*CheckVoteChange(votes)*/}
-              <CardText>Votes: {<span style={{color: 'black' }}>{votes}</span>}</CardText>
+              {setOldVote(votes)}
+              {CheckVoteChange(votes)}
+              {/*<CardText>Votes: {<span style={{color: 'black' }}>{votes}</span>}</CardText>*/}
               {CheckVotesButton(id)}
               {CheckDeleteButton(id)}
             </Card>
@@ -90,17 +94,19 @@ const CreateTablePage = (props: any) => {
         
   };
 
-  /*
+  
+
   const CheckVoteChange = (votes) => {
     
-    const [color, setColor] = useState('red');
-    
-    console.log("votes: "+votes.toString()+" votes1: "+votes1.toString())
-    if (votes1 < votes && votes1 != '') {
+    console.log("votes: "+votes.toString()+" votes1: "+oldVote.toString())
+    if (oldVote !== votes) {
       console.log('if statement works')
+
       //setVotes(votes)
-      //setColor('green')
+      setColor('green')
+      //setTimeout( function(){setColor('red')} , 1000 )
       setTimeout( function(){setColor('black')} , 3000 )
+
       return (
         <CardText>Votes: {<span style={{color: color }}>{votes}</span>}</CardText>
         )
@@ -111,7 +117,7 @@ const CreateTablePage = (props: any) => {
     }
     
     
-  }*/
+  }
     return (
       <>
         <div style={{display: "flex", flexDirection: "row", flexFlow: "row wrap", margin: "6", width: "80%" }}>
