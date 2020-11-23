@@ -4,6 +4,7 @@ import Database from "../db.json";
 import CookieService from './cookieservice';
 import axios from "axios";
 
+
 // Makes HTTP request to delete movie from database
 const handleDelete = async (e: any) => {
   let addDelete = (CookieService.get("Deletes"))
@@ -15,6 +16,7 @@ const handleDelete = async (e: any) => {
   let data = res.data
   data.votes = data.votes-1
   axios.put("/movies/"+e, data)
+
 }
   
 // Makes HTTP request to increment the movies vote by 1
@@ -45,6 +47,7 @@ const CheckVotesButton = (id) => {
 
 // Render the delete button if the user has not voted yet
 const CheckDeleteButton = (id) => {
+  
   let Deletes: number = CookieService.get("Deletes")
   if (Deletes < 1){
     return (
@@ -57,29 +60,58 @@ const CheckDeleteButton = (id) => {
   }
 }
 
-// Takes in data and creates a card in the flex box if the movies roomID is the same as the roomID in the users cookie
-const CreateCard = ({ id, movieName, votes, timeElapsed, roomId }) => {
-  if (!id) return <div />;
-    if (roomId.toString() === CookieService.get("RoomID")){
-      return ( 
-        <Col sm="20" style={{width: 200, padding: 5} }>
-          <Card body>
-            <CardTitle style={{fontSize: '1.5vw'}} > <b> {movieName} </b> </CardTitle>
-            <CardText>Votes: {votes}</CardText>
-            {CheckVotesButton(id)}
 
-            {CheckDeleteButton(id)}
-          </Card>
-        </Col>   
-        );
-      }else{
-      return <div />
-    }
-      
-};
+
+
+// Takes in data and creates a card in the flex box if the movies roomID is the same as the roomID in the users cookie
+
 
 // Main page element. Maps out movies from the database into the CreateRow Function
 const CreateTablePage = (props: any) => {
+
+  const CreateCard = ({ id, movieName, votes, timeElapsed, roomId }) => {
+    if (!id) return <div />;
+      if (roomId.toString() === CookieService.get("RoomID")){
+        return ( 
+          <Col sm="20" style={{width: 200, padding: 5} }>
+            <Card body>
+              <CardTitle style={{fontSize: '20px'}} > <b> {movieName} </b> </CardTitle>
+              {/*setVotes(votes)*/}
+              {/*CheckVoteChange(votes)*/}
+              <CardText>Votes: {<span style={{color: 'black' }}>{votes}</span>}</CardText>
+              {CheckVotesButton(id)}
+              {CheckDeleteButton(id)}
+            </Card>
+          </Col>   
+          );
+        }else{
+        return <div />
+      }
+        
+  };
+
+  /*
+  const CheckVoteChange = (votes) => {
+    
+    const [color, setColor] = useState('red');
+    
+    console.log("votes: "+votes.toString()+" votes1: "+votes1.toString())
+    if (votes1 < votes && votes1 != '') {
+      console.log('if statement works')
+      //setVotes(votes)
+      //setColor('green')
+      setTimeout( function(){setColor('black')} , 3000 )
+      return (
+        <CardText>Votes: {<span style={{color: color }}>{votes}</span>}</CardText>
+        )
+    }else{
+      return (
+        <CardText>Votes: {<span style={{color: color }}>{votes}</span>}</CardText>
+        )
+    }
+    
+    
+  }*/
     return (
       <>
         <div style={{display: "flex", flexDirection: "row", flexFlow: "row wrap", margin: "6", width: "80%" }}>
@@ -104,6 +136,7 @@ const CreateTablePage = (props: any) => {
         </div>
       </>
     );
+    
 }
 
 export default CreateTablePage;

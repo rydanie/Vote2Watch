@@ -20,6 +20,18 @@ const Results = (props: any) => {
     return <div />
   })
 
+  // Returns results if there was a three way tie
+  if(ArrayOfMovies[0]?.votes === ArrayOfMovies[1]?.votes && ArrayOfMovies[0]?.votes === ArrayOfMovies[2]?.votes){
+    return (
+      <h2>
+        <span style={{color: "red"}}>{ArrayOfMovies[0]?.movieName}, {ArrayOfMovies[1]?.movieName}, {ArrayOfMovies[2]?.movieName}
+        </span> are in a three way tie with <span style={{color: "red"}}>
+        {ArrayOfMovies[0]?.votes}
+        </span> votes
+      </h2>
+    )
+  }
+
   // Returns results if there was a two way tie
   if(ArrayOfMovies[0]?.votes === ArrayOfMovies[1]?.votes){
     return (

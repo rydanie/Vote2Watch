@@ -21,7 +21,6 @@ json-server --watch ./src/db.json --port 50501
 
 /*
 ** ToDo **
-Flexbox for voting cards
 Trash collection
 *later* Flash info to user that others have veto'd a movie
 */
@@ -31,7 +30,9 @@ function App() {
     <div>
       <Router>
         <div>
-        <a href="landingpage" style={{margin: "3%"}}>Home</a>
+          <br />
+        <a href="landingpage" style={{margin: "3%"}}> <b style={{fontSize: 25}}>Home </b> </a>
+        
           <Switch>
 
             <Route exact path="/">
