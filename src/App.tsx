@@ -6,7 +6,7 @@ import {
   Route
 } from "react-router-dom";
 
-// Importing page modules from /view directory
+// Import page modules
 import LandingPage from "./views/landingpage"
 import CreateRoomPage from "./views/createroompage"
 import JoinRoomPage from "./views/joinroom"
@@ -14,14 +14,13 @@ import HostGameRoom from "./views/hostgameroom"
 import GameRoom from "./views/gameroom"
 
 /* 
-JSON-Server backed startup:
-json-server --watch ./src/db.json --port 50501
+** BACKEND STARTUP **
+json-server --watch ./src/db.json --port 50501 --host 127.0.0.1
 */
 
 /*
 ** ToDo **
-Trash collection
-*later* Flash info to user that others have veto'd a movie
+Flash info to user that others have veto'd a movie
 */
 
 function App() {

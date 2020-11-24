@@ -15,7 +15,6 @@ const SubmitData = (event: any) => {
             "id": "",
             "movieName": movieInput,
             "votes": 0,
-            "timeElapsed": "",
             "movieRoomID": roomID
        })
     }

@@ -20,7 +20,6 @@ export const CreateServerPage = () => {
                   id={data.id}
                   movieName={data.movieName}
                   votes={data.votes}
-                  timeElapsed={data.timeElapsed}
                 />
               </div>
             ); 
@@ -63,7 +62,7 @@ const handleVote = async e => {
   axios.put("/movies/"+e, data)
 }
 
-  const CreateTable = ({ id, movieName, votes, timeElapsed }) => {
+  const CreateTable = ({ id, movieName, votes }) => {
     if (!id) return <div />;
     return (
       <table>
@@ -86,9 +85,6 @@ const handleVote = async e => {
             </td>
             <td>
               <h4>{votes}</h4>
-            </td>
-            <td>
-              <p>{timeElapsed}</p>
             </td>
           </tr>
         </tbody>

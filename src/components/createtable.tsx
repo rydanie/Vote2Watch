@@ -72,7 +72,7 @@ const CreateTablePage = (props: any) => {
   const [oldVote, setOldVote] = useState('');
   const [color, setColor] = useState('black');
 
-  const CreateCard = ({ id, movieName, votes, timeElapsed, roomId }) => {
+  const CreateCard = ({ id, movieName, votes, roomId }) => {
     if (!id) return <div />;
       if (roomId.toString() === CookieService.get("RoomID")){
         return ( 
@@ -131,7 +131,6 @@ const CreateTablePage = (props: any) => {
                     id={data.id}
                     movieName={data.movieName}
                     votes={data.votes}
-                    timeElapsed={data.timeElapsed}
                     roomId={data.movieRoomID} />
                 </div>
               );
