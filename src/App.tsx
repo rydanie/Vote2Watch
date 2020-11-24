@@ -29,7 +29,7 @@ function App() {
       <Router>
         <div>
           <br />
-        <a href="landingpage" style={{margin: "3%"}}> <b style={{fontSize: 25}}>Home </b> </a>
+        <a href="/" style={{margin: "3%"}}> <b style={{fontSize: 25}}>Home </b> </a>
         
           <Switch>
 
