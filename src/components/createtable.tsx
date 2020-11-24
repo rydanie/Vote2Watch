@@ -5,18 +5,16 @@ import CookieService from './cookieservice';
 import axios from "axios";
 
 
-// Makes HTTP request to delete movie from database
-const handleDelete = async (e: any) => {
-  let addDelete = (CookieService.get("Deletes"))
-  addDelete++
-  CookieService.set("Deletes", addDelete, { path: '/' } )
-  //axios.delete("movies/"+e)
+// Makes HTTP request to increment the movies vote by -1
+const handleVeto = async (e: any) => {
+  let addVeto = (CookieService.get("Vetos"))
+  addVeto++
+  CookieService.set("Vetos", addVeto, { path: '/' } )
 
   let res = await axios.get("/movies/"+e)
   let data = res.data
   data.votes = data.votes-1
   axios.put("/movies/"+e, data)
-
 }
   
 // Makes HTTP request to increment the movies vote by 1
@@ -32,7 +30,7 @@ const handleVote = async (e: any) => {
 }
 
 // Renders vote button if the user has voted less than 3 times
-const CheckVotesButton = (id) => {
+const CheckVotesButton = (id: any) => {
   let Votes: number = CookieService.get("Votes")
   if (Votes < 3){
     return (
@@ -46,12 +44,11 @@ const CheckVotesButton = (id) => {
 }
 
 // Render the delete button if the user has not voted yet
-const CheckDeleteButton = (id) => {
-  
-  let Deletes: number = CookieService.get("Deletes")
+const CheckDeleteButton = (id: any) => {
+  let Deletes: number = CookieService.get("Vetos")
   if (Deletes < 1){
     return (
-      <Button onClick={(e) => {handleDelete(id)} } >Veto</Button>
+      <Button onClick={(e) => {handleVeto(id)} } >Veto</Button>
     )
   }else{
     return (
@@ -59,7 +56,6 @@ const CheckDeleteButton = (id) => {
     )
   }
 }
-
 
 
 

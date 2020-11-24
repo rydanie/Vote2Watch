@@ -8,7 +8,7 @@ import Round1 from "./round1"
 import Round2 from "./round2"
 import Round3 from "./round3"
 
-const GameRoom = (props: any) => {
+const HostGameRoom = (props: any) => {
   let userRoomID = CookieService.get("RoomID");
 
   // Finds the index of the roomID (4-digit alphanumeric) based on user cookie
@@ -23,9 +23,11 @@ const GameRoom = (props: any) => {
   // Increments the rooms round by 1
   const onSubmit = async () => {
     let j = i+1
+    // Gets room data from backend
     let res = await axios.get("/rooms/"+j)
     let data = res.data
     data.round = data.round+1
+    // Puts incremented room data back into backend
     axios.put("/rooms/"+j, data)
   }
   
@@ -33,7 +35,7 @@ const GameRoom = (props: any) => {
   if(roomRound === 1){
     return(
       <div style={{margin: '3%'}}>
-        {/* Room Label */}
+        {/* Host Room Label */}
         <h1> - Host View - </h1>
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #1</h1>
@@ -47,7 +49,7 @@ const GameRoom = (props: any) => {
   if(roomRound === 2){
     return(
       <div style={{margin: '3%'}}>
-        {/* Room Label */}
+        {/* Host Room Label */}
         <h1> - Host View - </h1>
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #2</h1>
@@ -63,7 +65,7 @@ const GameRoom = (props: any) => {
   if(roomRound === 3){
     return(
       <div style={{margin: '3%'}}>
-        {/* Room Label */}
+        {/* Host Room Label */}
         <h1> - Host View - </h1>
         <h1> Game Room: {userRoomID} </h1>
         <h1> Voting Results: </h1>
@@ -72,7 +74,7 @@ const GameRoom = (props: any) => {
     )
   }
 
-  // Error if game round is out of range
+  // Error if game round is out of range or if the room does not exist
   else{
     return(
         <h1> Loading Room </h1>
@@ -81,4 +83,4 @@ const GameRoom = (props: any) => {
   
 }
 
-export default GameRoom;
+export default HostGameRoom;

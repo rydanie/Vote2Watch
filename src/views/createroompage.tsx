@@ -16,7 +16,7 @@ const CreateRoom = (props: any) => {
     
   let history = useHistory()
   CookieService.set("Votes", 0, { path: '/' } )
-  CookieService.set("Deletes", 0, { path: '/' } )
+  CookieService.set("Vetos", 0, { path: '/' } )
   
   // On submit to start game
   const onSubmit = () => {

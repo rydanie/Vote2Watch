@@ -4,7 +4,7 @@ import CreateTable from '../components/createtable'
 const Example = (props: any) => {
   return (
     <div>
-        <CreateTable />
+      <CreateTable />
     </div>
   );
 }

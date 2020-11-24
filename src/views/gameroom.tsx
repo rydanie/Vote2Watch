@@ -57,12 +57,12 @@ const GameRoom = (props: any) => {
     )
   }
 
-  // Error if game round is out of range or room does not exist
+  // Error if game round is out of range or if the room does not exist
   else{
     // Pushes user back to home page if the room is not found for 2.5 seconds
     setTimeout(function(){history.push("/")}, 2500)
     return(
-        <h1> Room not Found </h1>
+        <h1> Loading Room </h1>
     )
   }
   

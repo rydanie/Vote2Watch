@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 const JoinRoomPage = (event: any) => {
   let history = useHistory()
   CookieService.set("Votes", 0, { path: '/' } )
-  CookieService.set("Deletes", 0, { path: '/' } )
+  CookieService.set("Vetos", 0, { path: '/' } )
 
   // Variable for storing the users room input
   const [roomInput, setRoomInput] = useState("");
