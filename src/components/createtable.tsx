@@ -81,7 +81,7 @@ const CreateTablePage = (props: any) => {
               <CardTitle style={{fontSize: '20px'}} > <b> {movieName} </b> </CardTitle>
               {/*setVotes(votes)*/}
               {setOldVote(votes)}
-              {CheckVoteChange(votes)}
+              {<CardText>Votes: {<span style={{color: 'black' }}>{votes}</span>}</CardText>}
               {/*<CardText>Votes: {<span style={{color: 'black' }}>{votes}</span>}</CardText>*/}
               {CheckVotesButton(id)}
               {CheckDeleteButton(id)}
@@ -96,7 +96,7 @@ const CreateTablePage = (props: any) => {
 
   
 
-  const CheckVoteChange = (votes) => {
+  /*const CheckVoteChange = (votes) => {
     
     console.log("votes: "+votes.toString()+" votes1: "+oldVote.toString())
     if (oldVote !== votes) {
@@ -114,10 +114,10 @@ const CreateTablePage = (props: any) => {
       return (
         <CardText>Votes: {<span style={{color: color }}>{votes}</span>}</CardText>
         )
-    }
+    }*/
     
-    
-  }
+  
+  
     return (
       <>
         <div style={{display: "flex", flexDirection: "row", flexFlow: "row wrap", margin: "6", width: "80%" }}>
