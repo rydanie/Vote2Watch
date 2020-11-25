@@ -14,7 +14,7 @@ import HostGameRoom from "./views/hostgameroom"
 import GameRoom from "./views/gameroom"
 
 /* 
-** BACKEND STARTUP **
+** BACKEND SERVER STARTUP **
 json-server --watch ./src/db.json --port 50501 --host 127.0.0.1
 */
 
@@ -24,8 +24,7 @@ function App() {
       <Router>
         <div>
           <br />
-        <a href="/" style={{margin: "3%"}}> <b style={{fontSize: 25}}>Home </b> </a>
-        
+          <a href="/" style={{margin: "3%"}}> <b style={{fontSize: 25}}>Home </b> </a>
           <Switch>
 
             <Route exact path="/">

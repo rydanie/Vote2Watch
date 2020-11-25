@@ -5,7 +5,6 @@ import Database from "../db.json";
 import CookieService from './cookieservice';
 import { useHistory } from "react-router-dom";
 
-
 // Array storing all the movie objects in the room
 let ArrayOfMovies: any[] = [];
 
@@ -34,12 +33,9 @@ async function DeleteMoviesLoop(movieInRoom: any[]) {
   }, 500 )
 }
 
- 
-
 const Results = (props: any) => {
 
   let history = useHistory()
-  
   
   // Trash Collection to remove Movies and Rooms from the database at the end of the game
   async function FinishGame() {
@@ -106,8 +102,6 @@ const Results = (props: any) => {
       </div>
     )
   }
-
- 
 
 }
 
