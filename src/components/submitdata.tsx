@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from "axios";
+import Axios from "axios";
 import { Button, Form, FormGroup, Input, Label, } from 'reactstrap';
 import CookieService from './cookieservice';
 
@@ -11,7 +11,7 @@ const SubmitData = (event: any) => {
 
     // Method to make HTTP requests to backend to create a movie entry
     const handleSubmit = e => {
-        axios.post("/movies", {
+        Axios.post("/movies", {
             "id": "",
             "movieName": movieInput,
             "votes": 0,

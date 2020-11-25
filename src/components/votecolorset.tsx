@@ -1,15 +1,7 @@
-import Axios from 'axios';
+
 import React, { useState } from 'react';
-import { Button, CardText } from 'reactstrap';
-import Database from "../db.json";
-import CookieService from './cookieservice';
-import { useHistory } from "react-router-dom";
+import { CardText } from 'reactstrap';
 
-
-
-
-
-  
   const VoteColorSet = (votes) => {
     const [color, setColor] = useState('black');
     const [oldVote, setOldVote] = useState('');

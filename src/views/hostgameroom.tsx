@@ -2,7 +2,7 @@ import React from 'react';
 import CookieService from '../components/cookieservice';
 import Database from "../db.json";
 import { Button } from 'reactstrap';
-import axios from 'axios';
+import Axios from 'axios';
 
 import Round1 from "./round1"
 import Round2 from "./round2"
@@ -24,11 +24,11 @@ const HostGameRoom = (props: any) => {
   const onSubmit = async () => {
     let j = i+1
     // Gets room data from backend
-    let res = await axios.get("/rooms/"+j)
+    let res = await Axios.get("/rooms/"+j)
     let data = res.data
     data.round = data.round+1
     // Puts incremented room data back into backend
-    axios.put("/rooms/"+j, data)
+    Axios.put("/rooms/"+j, data)
   }
   
   // Conditional render round #1

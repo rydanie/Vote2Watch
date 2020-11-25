@@ -1,6 +1,6 @@
 import React from 'react';
 import CookieService from "../components/cookieservice"
-import axios from "axios";
+import Axios from "axios";
 import { Button } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const CreateRoom = (props: any) => {
   const onSubmit = () => {
 
     // Creates room in backend
-    axios.post("/rooms", {
+    Axios.post("/rooms", {
       "id": "",
       "name": HostRoomID,
       "round": 1

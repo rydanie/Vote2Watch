@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Col, Card, CardTitle, CardText, Button } from 'reactstrap';
 import Database from "../db.json";
 import CookieService from './cookieservice';
-import axios from "axios";
+import Axios from "axios";
 import VoteColorSet from '../components/votecolorset'
 
 
@@ -11,12 +11,11 @@ const handleDelete = async (e: any) => {
   let addVeto = (CookieService.get("Vetos"))
   addVeto++
   CookieService.set("Vetos", addVeto, { path: '/' } )
-  //axios.delete("movies/"+e)
 
-  let res = await axios.get("/movies/"+e)
+  let res = await Axios.get("/movies/"+e)
   let data = res.data
   data.votes = data.votes-1
-  axios.put("/movies/"+e, data)
+  Axios.put("/movies/"+e, data)
 
 }
   
@@ -26,10 +25,10 @@ const handleVote = async (e: any) => {
   addVote++
   CookieService.set("Votes", addVote, { path: '/' } )
 
-  let res = await axios.get("/movies/"+e)
+  let res = await Axios.get("/movies/"+e)
   let data = res.data
   data.votes = data.votes+1
-  axios.put("/movies/"+e, data)
+  Axios.put("/movies/"+e, data)
 }
 
 // Renders vote button if the user has voted less than 3 times
