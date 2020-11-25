@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React/*, { useState }*/ from 'react';
 import { Col, Card, CardTitle, CardText, Button } from 'reactstrap';
 import Database from "../db.json";
 import CookieService from './cookieservice';
 import Axios from "axios";
-import VoteColorSet from '../components/votecolorset'
+//import VoteColorSet from '../components/votecolorset'
 
-
-// Makes HTTP request to delete movie from database
-const handleDelete = async (e: any) => {
+// Makes HTTP request to increment the movies vote by -1
+const handleVeto = async (e: any) => {
   let addVeto = (CookieService.get("Vetos"))
   addVeto++
   CookieService.set("Vetos", addVeto, { path: '/' } )
@@ -16,7 +15,6 @@ const handleDelete = async (e: any) => {
   let data = res.data
   data.votes = data.votes-1
   Axios.put("/movies/"+e, data)
-
 }
   
 // Makes HTTP request to increment the movies vote by 1
@@ -45,13 +43,12 @@ const CheckVotesButton = (id) => {
   }
 }
 
-// Render the delete button if the user has not voted yet
-const CheckDeleteButton = (id) => {
-  
+// Render the veto button if the user has not veto'd yet
+const CheckVetoButton = (id) => {
   let Deletes: number = CookieService.get("Vetos")
   if (Deletes < 1){
     return (
-      <Button onClick={(e) => {handleDelete(id)} } >Veto</Button>
+      <Button onClick={(e) => {handleVeto(id)} } >Veto</Button>
     )
   }else{
     return (
@@ -60,40 +57,9 @@ const CheckDeleteButton = (id) => {
   }
 }
 
-const CreateNewCard = (votes) => {
-  const [color, setColor] = useState('black');
-  const [oldVote, setOldVote] = useState('');
-
-  const CheckVoteChange = (votes) => {
-    
-    setOldVote(votes)
-
-    if (oldVote < votes && color === 'black') {
-      setColor('green')
-      setTimeout( function(){setColor('black')} , 1000 )
-    }else if (oldVote > votes && color === 'black') {
-      setColor('red')
-      setTimeout( function(){setColor('black')} , 1000 )
-    }
-    return (
-      <CardText>Votes: {<span style={{color: color }}>{votes}</span>}</CardText>
-      )
-  }
-  
-  return CheckVoteChange(votes)
-}
-
-
-// Takes in data and creates a card in the flex box if the movies roomID is the same as the roomID in the users cookie
-
-
 // Main page element. Maps out movies from the database into the CreateRow Function
 const CreateTablePage = (props: any) => {
-
   
-  //const [color, setColor] = useState('black');
-  
-
   const CreateCard = ({ id, movieName, votes, roomId }) => {
     if (!id) return <div />;
       if (roomId.toString() === CookieService.get("RoomID")){
@@ -101,84 +67,39 @@ const CreateTablePage = (props: any) => {
           <Col sm="20" style={{width: 200, padding: 5} }>
             <Card body>
               <CardTitle style={{fontSize: '20px'}} > <b> {movieName} </b> </CardTitle>
-              {/*setVotes(votes)*/}
-              {/*CreateNewCard.*/}
-             
-              {/*VoteColorSet(votes)*/}
-              {/*CheckVoteChange(votes)*/}
               {<CardText>Votes: {<span style={{color: 'black' }}>{votes}</span>}</CardText>}
               {CheckVotesButton(id)}
-              {CheckDeleteButton(id)}
+              {CheckVetoButton(id)}
             </Card>
           </Col>   
           );
         }else{
         return <div />
-      }
-        
+      } 
   };
 
-  function test(votes) {
-
-  
-  //const [color, setColor] = useState('black');
-  //const [oldVote, setOldVote] = useState('');
-/*
-  const CheckVoteChange = (votes) => {
-    
-    setOldVote(votes)
-
-    if (oldVote < votes && color === 'black') {
-      setColor('green')
-      setTimeout( function(){setColor('black')} , 1000 )
-    }else if (oldVote > votes && color === 'black') {
-      setColor('red')
-      setTimeout( function(){setColor('black')} , 1000 )
-    }
-    return (
-      <CardText>Votes: {<span style={{color: color }}>{votes}</span>}</CardText>
-      )
-  }
-*/
-}
-
-  /*const CheckVoteChange = (votes) => {
-    
-    if (oldVote < votes) {
-      setColor('green')
-      setTimeout( function(){setColor('black')} , 1000 )
-    }else if (oldVote > votes) {
-      setColor('red')
-      setTimeout( function(){setColor('black')} , 1000 )
-    }
-    return (
-      <CardText>Votes: {<span style={{color: color }}>{votes}</span>}</CardText>
-      )
-  }*/
-
-    return (
-      <>
-        <div style={{display: "flex", flexDirection: "row", flexFlow: "row wrap", margin: "6", width: "80%" }}>
-          {Database.movies.map((data, key) => {
-            if (Database.movies.length > 1) {
-              return (
-                <div key={key} >
-                  
-                  <CreateCard
-                    key={key}
-                    id={data.id}
-                    movieName={data.movieName}
-                    votes={data.votes}
-                    roomId={data.movieRoomID} />
-                </div>
-              );
-            }else{
-              return (<h1> Database Error </h1>);
-            }
-          })}
-        </div>
-      </>
-    );
+  return (
+    <>
+      <div style={{display: "flex", flexDirection: "row", flexFlow: "row wrap", margin: "6", width: "80%" }}>
+        {Database.movies.map((data, key) => {
+          if (Database.movies.length > 1) {
+            return (
+              <div key={key} >
+                <CreateCard
+                  key={key}
+                  id={data.id}
+                  movieName={data.movieName}
+                  votes={data.votes}
+                  roomId={data.movieRoomID} />
+              </div>
+            );
+          }else{
+            return (<h1> Database Error </h1>);
+          }
+        })}
+      </div>
+    </>
+  );
     
 }
 
