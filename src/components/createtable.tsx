@@ -1,21 +1,8 @@
-import React/*, { useState }*/ from 'react';
+import React from 'react';
 import { Col, Card, CardTitle, CardText, Button } from 'reactstrap';
 import Database from "../db.json";
 import CookieService from './cookieservice';
 import Axios from "axios";
-//import VoteColorSet from '../components/votecolorset'
-
-// Makes HTTP request to increment the movies vote by -1
-const handleVeto = async (e: any) => {
-  let addVeto = (CookieService.get("Vetos"))
-  addVeto++
-  CookieService.set("Vetos", addVeto, { path: '/' } )
-
-  let res = await Axios.get("/movies/"+e)
-  let data = res.data
-  data.votes = data.votes-1
-  Axios.put("/movies/"+e, data)
-}
   
 // Makes HTTP request to increment the movies vote by 1
 const handleVote = async (e: any) => {
@@ -29,8 +16,20 @@ const handleVote = async (e: any) => {
   Axios.put("/movies/"+e, data)
 }
 
+// Makes HTTP request to increment the movies vote by -1
+const handleVeto = async (e: any) => {
+  let addVeto = (CookieService.get("Vetos"))
+  addVeto++
+  CookieService.set("Vetos", addVeto, { path: '/' } )
+
+  let res = await Axios.get("/movies/"+e)
+  let data = res.data
+  data.votes = data.votes-1
+  Axios.put("/movies/"+e, data)
+}
+
 // Renders vote button if the user has voted less than 3 times
-const CheckVotesButton = (id) => {
+const CheckVotesButton = (id: any) => {
   let Votes: number = CookieService.get("Votes")
   if (Votes < 3){
     return (
@@ -43,10 +42,10 @@ const CheckVotesButton = (id) => {
   }
 }
 
-// Render the veto button if the user has not veto'd yet
-const CheckVetoButton = (id) => {
-  let Deletes: number = CookieService.get("Vetos")
-  if (Deletes < 1){
+// Render the veto button if the user has not vetoed yet
+const CheckVetoButton = (id: any) => {
+  let Veto: number = CookieService.get("Vetos")
+  if (Veto < 1){
     return (
       <Button onClick={(e) => {handleVeto(id)} } >Veto</Button>
     )
@@ -57,9 +56,10 @@ const CheckVetoButton = (id) => {
   }
 }
 
-// Main page element. Maps out movies from the database into the CreateRow Function
+// Main page element. Maps out movies from the database into the CreateCard Function
 const CreateTablePage = (props: any) => {
-  
+
+  // Creates a single reactstrap card with movie and voting information
   const CreateCard = ({ id, movieName, votes, roomId }) => {
     if (!id) return <div />;
       if (roomId.toString() === CookieService.get("RoomID")){
@@ -69,6 +69,7 @@ const CreateTablePage = (props: any) => {
               <CardTitle style={{fontSize: '20px'}} > <b> {movieName} </b> </CardTitle>
               {<CardText>Votes: {<span style={{color: 'black' }}>{votes}</span>}</CardText>}
               {CheckVotesButton(id)}
+              <br />
               {CheckVetoButton(id)}
             </Card>
           </Col>   
@@ -78,6 +79,7 @@ const CreateTablePage = (props: any) => {
       } 
   };
 
+  // Maps movies into cards to be added to flexbox
   return (
     <>
       <div style={{display: "flex", flexDirection: "row", flexFlow: "row wrap", margin: "6", width: "80%" }}>

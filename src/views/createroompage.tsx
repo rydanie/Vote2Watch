@@ -21,14 +21,14 @@ const CreateRoom = (props: any) => {
   // On submit to start game
   const onSubmit = () => {
 
-    // Creates room in backend
+    // Creates a room in the backend
     Axios.post("/rooms", {
       "id": "",
       "name": HostRoomID,
       "round": 1
     })
     
-    // Sets host user cookie
+    // Sets host user's cookie
     CookieService.set("RoomID", HostRoomID, { path: '/' } )
     history.push("/hostgameroom")
   }

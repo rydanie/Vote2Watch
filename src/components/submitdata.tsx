@@ -5,7 +5,6 @@ import CookieService from './cookieservice';
 
 const SubmitData = (event: any) => {
 
-    // Variable to store user input of the movie title
     const [movieInput, setMovieInput] = useState("");
     const [roomID, setRoomID] = useState("");
 
@@ -19,30 +18,30 @@ const SubmitData = (event: any) => {
        })
     }
 
+    // Changes the movieInput variable with the users form input
+    const handleChange = (e: any) => {
+        setRoomID(CookieService.get("RoomID"));
+        setMovieInput(e.target.value);
+    }
+
     // Checks if the users keypress is the enter key so pressing 'enter' triggers handleSubmit
-    const handleKeypress = e => {
+    const handleKeypress = (e: any) => {
         if (e.key === "Enter") {
             handleSubmit(e);
           } 
-    }
-
-    // Changes the movieInput variable with the users form input
-    const handleChange = e => {
-        setRoomID(CookieService.get("RoomID"));
-        setMovieInput(e.target.value);
     }
 
     return (
     <div>
         <Form >
         <FormGroup>
-            <Label for="exampleAddress">Enter a Movie Title</Label>
+            <Label>Enter a Movie Title</Label>
             <Input
                     type="text" 
                     onKeyPress = {handleKeypress}
                     onChange= {handleChange}
                     value = {movieInput}
-                    placeholder="Enter movie"
+                    placeholder="Enter a Movie"
             />
         </FormGroup>
         </Form>

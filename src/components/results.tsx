@@ -5,12 +5,13 @@ import Database from "../db.json";
 import CookieService from './cookieservice';
 import { useHistory } from "react-router-dom";
 
+
 // Array storing all the movie objects in the room
 let ArrayOfMovies: any[] = [];
 
 // Maps out all movies in the database into ArrayOfMovies
-Database.movies.map((data, key) => {
-  // Checks that the movie is in the same roomID as the users cookie. 
+Database.movies.map((data) => {
+  // Checks that the movie is in the same roomID as the users cookie
   if (data.movieRoomID.toString() === CookieService.get("RoomID") && Database.movies.length > 1){
     ArrayOfMovies.push(data)
   }
@@ -33,27 +34,31 @@ async function DeleteMoviesLoop(movieInRoom: any[]) {
   }, 500 )
 }
 
+ 
+
 const Results = (props: any) => {
 
   let history = useHistory()
-
+  
+  
   // Trash Collection to remove Movies and Rooms from the database at the end of the game
   async function FinishGame() {
+  
 
-    // Calls the delete movie loop with an array of all the movies in the RoomID
-    DeleteMoviesLoop(ArrayOfMovies)
+  // Calls the delete movie recursive loop with an array of all the movies in the RoomID
+  DeleteMoviesLoop(ArrayOfMovies)
 
-    // Gets room data from the database
-    let resRooms = await Axios.get("/rooms/")
-    let dataRooms = resRooms.data
+  // Gets room data from the database
+  let resRooms = await Axios.get("/rooms/")
+  let dataRooms = resRooms.data
 
-    // Deletes Room from backed. Finds the id of the room based on the users cookie. 
-    for (let i=0; i < dataRooms.length; i++) {
-      if(CookieService.get('RoomID') === dataRooms[i].name) {
-        Axios.delete('/rooms/'+dataRooms[i].id)
-      }
+  // Deletes Room from backed. Finds the id of the room based on the users cookie. 
+  for (let i=0; i < dataRooms.length; i++) {
+    if(CookieService.get('RoomID') === dataRooms[i].name) {
+      Axios.delete('/rooms/'+dataRooms[i].id)
     }
-    history.push("/");
+  }
+  history.push("/");
 
 }
   
@@ -101,6 +106,8 @@ const Results = (props: any) => {
       </div>
     )
   }
+
+ 
 
 }
 

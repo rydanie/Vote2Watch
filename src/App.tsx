@@ -18,11 +18,6 @@ import GameRoom from "./views/gameroom"
 json-server --watch ./src/db.json --port 50501 --host 127.0.0.1
 */
 
-/*
-** ToDo **
-Flash info to user that others have veto'd a movie
-*/
-
 function App() {
   return (
     <div>
@@ -62,6 +57,7 @@ function App() {
       </Router>
     </div>
   );
+
 }
 
 export default App;

@@ -4,27 +4,27 @@ import CookieService from './cookieservice';
 
 // Takes in data and creates a row in the table if the movies roomID is the same as the roomID in the users cookie
 const CreateRow = ({ id, movieName, roomId }) => {
-    if (!id) return <div />;
-    if (roomId.toString() === CookieService.get("RoomID")){
-        return (
-            <table>
-              <tbody>
-                <tr>
-                    <h2>{movieName}</h2>
-                </tr>
-              </tbody>
-            </table>
-          );
-        }else{
-          return <div /> 
-        }
+  if (!id) return <div />;
+  if (roomId.toString() === CookieService.get("RoomID")){
+    return (
+        <table>
+          <tbody>
+            <tr>
+              <h2>{movieName}</h2>
+            </tr>
+          </tbody>
+        </table>
+      );
+    }else{
+      return <div /> 
+    }
 };
 
 // Main page element. Maps out movies from the database into the CreateRow Function
 const Round1Table = (props: any) => {
   return (
     <>
-          <div className="stock-container">
+          <div className="table-container">
             <table>
               <tbody>
                 <tr>

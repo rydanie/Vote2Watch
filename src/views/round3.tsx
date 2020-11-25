@@ -1,7 +1,7 @@
 import React from 'react';
 import Results from "../components/results"
 
-const Example = (props: any) => {
+const Round3 = (props: any) => {
   return (
     <div>
       <Results />
@@ -9,4 +9,4 @@ const Example = (props: any) => {
   );
 }
 
-export default Example;
+export default Round3;

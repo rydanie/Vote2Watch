@@ -1,7 +1,7 @@
 import React from 'react';
 import CreateTable from '../components/createtable'
 
-const Example = (props: any) => {
+const Round2 = (props: any) => {
   return (
     <div>
       <CreateTable />
@@ -9,4 +9,4 @@ const Example = (props: any) => {
   );
 }
 
-export default Example;
+export default Round2;

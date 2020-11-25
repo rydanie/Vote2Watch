@@ -2,13 +2,12 @@ import React from 'react';
 import CookieService from '../components/cookieservice';
 import Database from "../db.json";
 import { useHistory } from "react-router-dom";
-
 import Round1 from "./round1"
 import Round2 from "./round2"
 import Round3 from "./round3"
 
-
 const GameRoom = (props: any) => {
+
   let userRoomID = CookieService.get("RoomID");
   let history = useHistory()
 
@@ -24,11 +23,11 @@ const GameRoom = (props: any) => {
   // Conditional render round #1
   if(roomRound === 1){
     return(
-      <div>
-      {/* Room Label */}
-      <h1> Game Room: {userRoomID} </h1>
-      <h1>Round #1</h1>
-      <Round1 />
+      <div style={{margin: '3%'}}>
+        {/* Room Label */}
+        <h1> Game Room: {userRoomID} </h1>
+        <h1>Round #1</h1>
+        <Round1 />
       </div>
     )
   }
@@ -36,7 +35,7 @@ const GameRoom = (props: any) => {
   // Conditional render round #2
   if(roomRound === 2){
     return(
-      <div>
+      <div style={{margin: '3%'}}>
         {/* Room Label */}
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #2</h1>
@@ -48,7 +47,7 @@ const GameRoom = (props: any) => {
   // Conditional render round #3
   if(roomRound === 3){
     return(
-      <div>
+      <div style={{margin: '3%'}}>
         {/* Room Label */}
         <h1> Game Room: {userRoomID} </h1>
         <h1>Round #3</h1>
@@ -59,8 +58,8 @@ const GameRoom = (props: any) => {
 
   // Error if game round is out of range or if the room does not exist
   else{
-    // Pushes user back to home page if the room is not found for 2.5 seconds
-    setTimeout(function(){history.push("/")}, 2500)
+    // Pushes user back to home page if the room is not found for 1.5 seconds
+    setTimeout(function(){history.push("/")}, 1500)
     return(
         <h1> Loading Room </h1>
     )

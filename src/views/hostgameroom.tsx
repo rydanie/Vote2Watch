@@ -3,15 +3,15 @@ import CookieService from '../components/cookieservice';
 import Database from "../db.json";
 import { Button } from 'reactstrap';
 import Axios from 'axios';
-
 import Round1 from "./round1"
 import Round2 from "./round2"
 import Round3 from "./round3"
 
 const HostGameRoom = (props: any) => {
+
   let userRoomID = CookieService.get("RoomID");
 
-  // Finds the index of the roomID (4-digit alphanumeric) based on user cookie
+  // Finds the index of the roomID (4-digit alphanumeric) based on user's cookie
   let i=0 
   while (Database.rooms[i]?.name !== userRoomID && i<Database.rooms.length) {
     i++
