@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-        <img src={logo} style={{width: '80%', maxWidth: 500}}/>
+        <img src={logo} alt="Vote2Watch Logo" style={{width: '80%', maxWidth: 500}}/>
         <br /><br /><br /><br /><br /><br /><br /><br />
 
         <a href="createroompage">
