@@ -36,7 +36,7 @@ const CreateRoom = (props: any) => {
   return (
     <div style={{margin: '5%'}}>
       <h1>Create A Room</h1>
-      <h2>Room ID: {HostRoomID}</h2>
+      <h2>Room ID: <span style={{fontFamily: 'ubuntu'}}> <b> {HostRoomID} </b> </span> </h2>
       <Button onClick={onSubmit} color="primary">Start Game</Button>{' '}
     </div>
   );

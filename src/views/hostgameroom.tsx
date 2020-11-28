@@ -37,7 +37,7 @@ const HostGameRoom = (props: any) => {
       <div style={{margin: '3%'}}>
         {/* Host Room Label */}
         <h1> - Host View - </h1>
-        <h1> Game Room: {userRoomID} </h1>
+        <h2> Room ID: <span style={{fontFamily: 'ubuntu'}}> <b> {userRoomID} </b> </span> </h2>
         <h1>Round #1</h1>
         <Button onClick={onSubmit} color="primary">Move To Round #2</Button>{' '}
         <Round1 />
@@ -51,7 +51,7 @@ const HostGameRoom = (props: any) => {
       <div style={{margin: '3%'}}>
         {/* Host Room Label */}
         <h1> - Host View - </h1>
-        <h1> Game Room: {userRoomID} </h1>
+        <h2> Room ID: <span style={{fontFamily: 'ubuntu'}}> <b> {userRoomID} </b> </span> </h2>
         <h1>Round #2</h1>
         <div>
             <Button onClick={onSubmit} color="primary">Move To Voting Results</Button>{' '}
@@ -67,7 +67,7 @@ const HostGameRoom = (props: any) => {
       <div style={{margin: '3%'}}>
         {/* Host Room Label */}
         <h1> - Host View - </h1>
-        <h1> Game Room: {userRoomID} </h1>
+        <h2> <b> Room ID: </b> <span style={{fontFamily: 'ubuntu'}}> <b> {userRoomID} </b> </span> </h2>
         <h1> Voting Results: </h1>
         <Round3 />
       </div>
