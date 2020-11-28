@@ -14,7 +14,7 @@ To install all Node modules
 
 Runs the app in the development mode.
 
-### `json-server --watch ./src/db.json --port 50501`
+### `json-server --watch ./src/db.json --port 50501 --host 127.0.0.1`
 
 Start the backend in another terminal
 
