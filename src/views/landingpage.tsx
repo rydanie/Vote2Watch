@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import { Button } from 'reactstrap';
-import logo from "./Vote2Watch8.png"
+import logo from "./vote2watch10.png"
 
 class App extends Component {
   render() {
     return(
       <div className="App">
-        <img src={logo} alt="Vote2Watch Logo" style={{width: '80%', maxWidth: 600}}/>
+        <br /><br />
+        <img src={logo} alt="Vote2Watch Logo" style={{width: '85%', maxWidth: 700}}/>
+        <br /><br /><br /><br />
         <div />
 
         <a href="createroompage">
