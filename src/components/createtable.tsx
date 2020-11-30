@@ -65,11 +65,11 @@ const CreateTablePage = (props: any) => {
       if (roomId.toString() === CookieService.get("RoomID")){
         return ( 
           <Col sm="20" style={{width: 200, padding: 5} }>
-            <Card body>
+            <Card body >
               <CardTitle style={{fontSize: '20px'}} > <b> {movieName} </b> </CardTitle>
               {<CardText>Votes: {<span style={{color: 'black' }}>{votes}</span>}</CardText>}
               {CheckVotesButton(id)}
-              <br />
+              <h2> </h2>
               {CheckVetoButton(id)}
             </Card>
           </Col>   

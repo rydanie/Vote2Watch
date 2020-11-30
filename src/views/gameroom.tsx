@@ -26,7 +26,7 @@ const GameRoom = (props: any) => {
       <div style={{margin: '3%'}}>
         {/* Room Label */}
         <h2> Room ID: <span style={{fontFamily: 'ubuntu'}}> <b> {userRoomID} </b> </span> </h2>
-        <h1>Round #1</h1>
+        <h2>Round #1</h2>
         <Round1 />
       </div>
     )
@@ -38,7 +38,7 @@ const GameRoom = (props: any) => {
       <div style={{margin: '3%'}}>
         {/* Room Label */}
         <h2> Room ID: <span style={{fontFamily: 'ubuntu'}}> <b> {userRoomID} </b> </span> </h2>
-        <h1>Round #2</h1>
+        <h2>Round #2</h2>
         <Round2 />
       </div>
     )
@@ -50,7 +50,7 @@ const GameRoom = (props: any) => {
       <div style={{margin: '3%'}}>
         {/* Room Label */}
         <h2> Room ID: <span style={{fontFamily: 'ubuntu'}}> <b> {userRoomID} </b> </span> </h2>
-        <h1>Round #3</h1>
+        <h2> Voting Results: </h2>
         <Round3 />
       </div>
     )
